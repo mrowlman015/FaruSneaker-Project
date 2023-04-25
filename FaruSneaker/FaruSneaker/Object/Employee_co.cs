@@ -41,11 +41,9 @@ namespace FaruSneaker.Object
 
         private void button1_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             int checkphone = 0;
-=======
+
             long checkphone = 0;
->>>>>>> bfa3a1afdf339598277377659eebc4c435004652
             long checkci = 0;
             int checksalary = 0;
             if (!long.TryParse(txt_ephone.Text, out checkphone))
