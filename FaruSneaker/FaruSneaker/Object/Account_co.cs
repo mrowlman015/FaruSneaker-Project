@@ -26,6 +26,14 @@ namespace FaruSneaker.Object
             table_ACC.DataSource = data.load();
         }
 
+        private void reset()
+        {
+            txt_accname.Text = "";
+            txt_accpass.Text = "";
+            txt_accrole.Text = "";
+            table_ACC.ClearSelection();
+        }
+
         private void btn_add_Click(object sender, EventArgs e)
         {
             if (txt_accname.Text == "" || txt_accpass.Text == "" || txt_accrole.Text == "")
@@ -50,12 +58,15 @@ namespace FaruSneaker.Object
                 }
                 if (data.add(name, pass, role))
                 {
+                    reset();
                     load();
 
                 }
                 else
                 {
+
                     MessageBox.Show("Trùng tên tài khoản");
+                    return;
                 }
             }
         }
@@ -67,12 +78,14 @@ namespace FaruSneaker.Object
             {
                 if (data.delete(name))
                 {
+                    reset();
                     MessageBox.Show("Xóa thành công");
                     load();
                 }
                 else
                 {
                     MessageBox.Show("Không xóa thành công");
+                    return;
                 }
             }
         }
@@ -94,12 +107,14 @@ namespace FaruSneaker.Object
             }
             if (data.update(name, pass, role))
             {
+                reset();
                 load();
 
             }
             else
             {
                 MessageBox.Show("Trùng tên tài khoản, không thể cập nhật");
+                return;
             }
         }
 

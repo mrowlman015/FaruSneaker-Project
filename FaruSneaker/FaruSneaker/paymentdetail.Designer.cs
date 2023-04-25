@@ -34,7 +34,6 @@
             rtx_Price = new TextBox();
             rtx_PName = new TextBox();
             rtx_PID = new TextBox();
-            btn_Update = new Button();
             groupBox1 = new GroupBox();
             dgv_choose = new DataGridView();
             btn_Remove = new Button();
@@ -62,7 +61,6 @@
             groupBox2.Controls.Add(rtx_Price);
             groupBox2.Controls.Add(rtx_PName);
             groupBox2.Controls.Add(rtx_PID);
-            groupBox2.Controls.Add(btn_Update);
             groupBox2.Controls.Add(groupBox1);
             groupBox2.Controls.Add(btn_Remove);
             groupBox2.Controls.Add(dgv_product);
@@ -116,18 +114,6 @@
             rtx_PID.Name = "rtx_PID";
             rtx_PID.Size = new Size(234, 32);
             rtx_PID.TabIndex = 104;
-            // 
-            // btn_Update
-            // 
-            btn_Update.BackColor = Color.FromArgb(233, 197, 57);
-            btn_Update.ForeColor = Color.Black;
-            btn_Update.Location = new Point(666, 615);
-            btn_Update.Name = "btn_Update";
-            btn_Update.Size = new Size(194, 37);
-            btn_Update.TabIndex = 101;
-            btn_Update.Text = "Cập nhật";
-            btn_Update.UseVisualStyleBackColor = false;
-            btn_Update.Click += btn_Update_Click;
             // 
             // groupBox1
             // 
@@ -285,7 +271,6 @@
         private Label label17;
         private Label label18;
         private DataGridView dgv_choose;
-        private Button btn_Update;
         private TextBox rtx_PID;
         private TextBox rtx_PName;
         private TextBox rtx_Price;

@@ -24,6 +24,17 @@ namespace DAL
             return table;
         }
 
+        public DataTable loadForService(string id)
+        {
+            string query = "select * from BillDetailForService where BillID = @id";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(table);
+            return table;
+        }
+
         public DataTable getCusID()
         {
             string query = "SELECT BillCustomerID from Bill";

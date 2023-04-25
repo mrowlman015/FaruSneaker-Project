@@ -93,6 +93,10 @@ namespace FaruSneaker.Object
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
+                                    if (cell == null || cell.Value == null)
+                                    {
+                                        break;
+                                    }
                                     pdfTable.AddCell(cell.Value.ToString());
                                 }
                             }

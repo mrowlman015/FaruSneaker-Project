@@ -18,6 +18,11 @@ namespace BUS
             return data.load(id);
         }
 
+        public DataTable loadForService(string id)
+        {
+            return data.loadForService(id);
+        }
+
         public double getTotalCash(string id)
         {
             return data.getTotalCash(id);

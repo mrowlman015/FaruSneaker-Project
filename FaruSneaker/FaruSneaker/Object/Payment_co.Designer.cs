@@ -452,6 +452,7 @@
             cButton7.TabIndex = 1;
             cButton7.TextColor = Color.Transparent;
             cButton7.UseVisualStyleBackColor = false;
+            cButton7.Click += cButton7_Click;
             // 
             // rjTextBox1
             // 

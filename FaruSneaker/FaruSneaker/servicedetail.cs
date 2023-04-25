@@ -30,6 +30,7 @@ namespace FaruSneaker
             rtx_PName.ReadOnly = true;
             rtx_Price.ReadOnly = true;
             rtx_Des.ReadOnly = true;
+            load();
         }
 
         public void setEditingMode(bool enable)
@@ -78,7 +79,7 @@ namespace FaruSneaker
         private void load()
         {
             dgv_product.DataSource = sv.load();
-            dgv_choose.DataSource = bl.load(this.id);
+            dgv_choose.DataSource = bl.loadForService(this.id);
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -91,6 +92,8 @@ namespace FaruSneaker
                 string des = rtx_Des.Text;
                 if (bl.add(this.id, id, price, des))
                 {
+                    MessageBox.Show("Thành công!");
+                    dgv_choose.DataSource = sv.load();
                     load();
                 }
             }

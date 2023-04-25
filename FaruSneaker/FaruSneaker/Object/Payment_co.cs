@@ -229,9 +229,14 @@ namespace FaruSneaker.Object
 
                 BillDetail_logic bi = new BillDetail_logic();
                 rtx_TotalCash.Text = bi.getTotalCashService(id).ToString();
-                dgv_Payment.DataSource = bi.load(id);
+                dgv_Payment.DataSource = bi.loadForService(id);
                 this.Show();
             }
+        }
+
+        private void cButton7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

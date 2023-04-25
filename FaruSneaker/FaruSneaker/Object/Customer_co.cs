@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +26,15 @@ namespace FaruSneaker.Object
             table_C.DataSource = data.load();
         }
 
+        private void reset()
+        {
+            table_C.ClearSelection();
+            txt_cid.Text = "";
+            txt_cname.Text = "";
+            txt_cphone.Text = "";
+            txt_type.Text = "";
+        }
+
         private void btn_add_Click(object sender, EventArgs e)
         {
             string Id = txt_cid.Text;
@@ -39,6 +49,7 @@ namespace FaruSneaker.Object
             {
                 if (data.add(Id, name, phone))
                 {
+                    MessageBox.Show("Thành công!");
                     load();
                     if (data.typeCustomer(Id) == 1)
                     {
@@ -48,6 +59,13 @@ namespace FaruSneaker.Object
                     {
                         txt_type.Text = "Khách hàng";
                     }
+                    reset();
+                }
+                else
+                {
+                    reset();
+                    MessageBox.Show("Thất bại!");
+                    return;
                 }
             }
         }
@@ -61,12 +79,15 @@ namespace FaruSneaker.Object
             {
                 if (data.delete(id))
                 {
+                    reset();
                     MessageBox.Show("Xóa thành công");
                     load();
                 }
                 else
                 {
+                    reset();
                     MessageBox.Show("Không xóa thành công");
+                    return;
                 }
             }
         }
@@ -78,7 +99,15 @@ namespace FaruSneaker.Object
             string phone = txt_cphone.Text;
             if (data.update(id, name, phone))
             {
+                MessageBox.Show("Thành công!");
+                reset();
                 load();
+            }
+            else
+            {
+                reset();
+                MessageBox.Show("Thất bại!");
+                return;
             }
         }
 
