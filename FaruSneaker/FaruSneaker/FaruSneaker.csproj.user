@@ -47,6 +47,9 @@
     <Compile Update="products.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Revenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="RJTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>

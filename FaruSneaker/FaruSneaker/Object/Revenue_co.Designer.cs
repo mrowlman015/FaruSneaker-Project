@@ -89,6 +89,7 @@
             btn_Print.TabIndex = 64;
             btn_Print.Text = "In";
             btn_Print.UseVisualStyleBackColor = false;
+            btn_Print.Click += btn_Print_Click;
             // 
             // btn_Remove
             // 

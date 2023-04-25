@@ -413,3 +413,4 @@ E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\FaruSneaker
 E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\FaruSneaker\obj\Debug\net6.0-windows\FaruSneaker.genruntimeconfig.cache
 E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\FaruSneaker\obj\Debug\net6.0-windows\ref\FaruSneaker.dll
 E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\FaruSneaker\obj\Debug\net6.0-windows\FaruSneaker.Object.Revenue_co.resources
+E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\FaruSneaker\obj\Debug\net6.0-windows\FaruSneaker.Revenue.resources
