@@ -28,3 +28,9 @@ E:\HOC TAP\PROJECT\GITPROJECT\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.
 E:\HOC TAP\PROJECT\GITPROJECT\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 E:\HOC TAP\PROJECT\GITPROJECT\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.dll
 E:\HOC TAP\PROJECT\GITPROJECT\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.pdb
+G:\University\HKII năm 2\Software LT\FaruSneaker-Project\FaruSneaker\DAL\bin\Debug\DAL.dll
+G:\University\HKII năm 2\Software LT\FaruSneaker-Project\FaruSneaker\DAL\bin\Debug\DAL.pdb
+G:\University\HKII năm 2\Software LT\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+G:\University\HKII năm 2\Software LT\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+G:\University\HKII năm 2\Software LT\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.dll
+G:\University\HKII năm 2\Software LT\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.pdb
