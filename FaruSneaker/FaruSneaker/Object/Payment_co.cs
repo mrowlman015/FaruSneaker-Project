@@ -212,7 +212,14 @@ namespace FaruSneaker.Object
         private void btn_PayBill_Click(object sender, EventArgs e)
         {
             string? cusid = cbx_CusID.SelectedItem.ToString();
-            bl.update(bl.getCurrentID(), cusid, Convert.ToInt32(rtx_TotalCash.Text), cbx_StaffID.SelectedItem.ToString());
+            if (bl.update(bl.getCurrentID(), cusid, Convert.ToInt32(rtx_TotalCash.Text), cbx_StaffID.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Thất bại!");
+            }
         }
 
         private void Payment_co_Load(object sender, EventArgs e)
@@ -259,28 +266,32 @@ namespace FaruSneaker.Object
 
         private void cButton7_Click(object sender, EventArgs e)
         {
-            DataTable dt = bl.searchById(rtx_Search.Texts);
-            DataRow row = dt.Rows[0];
-            rtx_BillID.Text = row[0].ToString();
-            cbx_CusID.Text = row[1].ToString();
-            cbx_CusID_SelectedIndexChanged(sender, e);
-            cbx_StaffID.Text = row[2].ToString();
-            cbx_StaffID_SelectedIndexChanged(sender, e);
-            BillDetail_logic bi = new BillDetail_logic();
-            string? id = row[0].ToString();
-            if (id != null)
+            if (rtx_Search.Texts != "")
             {
-                if (bi.checkInBillDetail(id))
+                DataTable dt = bl.searchById(rtx_Search.Texts);
+                DataRow row = dt.Rows[0];
+                rtx_BillID.Text = row[0].ToString();
+                cbx_CusID.Text = row[1].ToString();
+                cbx_CusID_SelectedIndexChanged(sender, e);
+                cbx_StaffID.Text = row[2].ToString();
+                cbx_StaffID_SelectedIndexChanged(sender, e);
+                BillDetail_logic bi = new BillDetail_logic();
+                string? id = row[0].ToString();
+                if (id != null)
                 {
-                    rtx_TotalCash.Text = bi.getTotalCash(id).ToString();
-                    dgv_Payment.DataSource = bi.load(id);
-                }
-                else
-                {
-                    rtx_TotalCash.Text = bi.getTotalCashService(id).ToString();
-                    dgv_Payment.DataSource = bi.loadForService(id);
+                    if (bi.checkInBillDetail(id))
+                    {
+                        rtx_TotalCash.Text = bi.getTotalCash(id).ToString();
+                        dgv_Payment.DataSource = bi.load(id);
+                    }
+                    else
+                    {
+                        rtx_TotalCash.Text = bi.getTotalCashService(id).ToString();
+                        dgv_Payment.DataSource = bi.loadForService(id);
+                    }
                 }
             }
+            
         }
     }
 }

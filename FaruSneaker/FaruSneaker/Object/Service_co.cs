@@ -51,6 +51,7 @@ namespace FaruSneaker.Object
                 string des = rtx_Description.Text;
                 if (sl.add(id, name, price, des))
                 {
+                    MessageBox.Show("Thành công!");
                     btn_Clear_Click(sender, e);
                     load();
                 }
@@ -62,6 +63,7 @@ namespace FaruSneaker.Object
             string id = txt_ID.Text;
             if (sl.remove(id))
             {
+                MessageBox.Show("Thành công!");
                 btn_Clear_Click(sender, e);
                 load();
             }
@@ -75,6 +77,7 @@ namespace FaruSneaker.Object
             string des = rtx_Description.Text;
             if (sl.update(id, name, price, des))
             {
+                MessageBox.Show("Thành công!");
                 btn_Clear_Click(sender, e);
                 load();
             }

@@ -111,7 +111,7 @@ create table BillDetailForService (
 	ServiceID varchar(10) not null,
 	ServicePrice int, 
 	ServiceDes nvarchar(100),
-	primary key(BillID, ProductID),
+	primary key(BillID, ServiceID),
 	constraint billdetailforservice_id_bill foreign key(BillID) references Bill(BillID),
 	constraint billdetailforservice_id_product foreign key(ServiceID) references Product(ProductID)
 )

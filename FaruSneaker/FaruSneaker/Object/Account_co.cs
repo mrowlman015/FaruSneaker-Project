@@ -45,9 +45,9 @@ namespace FaruSneaker.Object
             {
                 string name = txt_accname.Text;
                 string pass = txt_accpass.Text;
-                int role = Int32.Parse(txt_accrole.Text);
+                int checkrole = 0
 
-                if (!int.TryParse(txt_accrole.Text, out role))
+                if (!int.TryParse(txt_accrole.Text, out checkrole))
                 {
                     error.SetError(txt_accrole, "Xin nhập chữ số");
                     return;
@@ -56,15 +56,16 @@ namespace FaruSneaker.Object
                 {
                     error.Clear();
                 }
+                int role = Int32.Parse(txt_accrole.Text);
                 if (data.add(name, pass, role))
                 {
+                    MessageBox.Show("Thành công!");
                     reset();
                     load();
 
                 }
                 else
                 {
-
                     MessageBox.Show("Trùng tên tài khoản");
                     return;
                 }
@@ -94,9 +95,9 @@ namespace FaruSneaker.Object
         {
             string name = txt_accname.Text;
             string pass = txt_accpass.Text;
-            int role = Int32.Parse(txt_accrole.Text);
+            int checkrole = 0;
 
-            if (!int.TryParse(txt_accrole.Text, out role))
+            if (!int.TryParse(txt_accrole.Text, out checkrole))
             {
                 error.SetError(txt_accrole, "Xin nhập chữ số");
                 return;
@@ -105,8 +106,10 @@ namespace FaruSneaker.Object
             {
                 error.Clear();
             }
+            int role = Int32.Parse(txt_accrole.Text);
             if (data.update(name, pass, role))
             {
+                MessageBox.Show("Thành công!");
                 reset();
                 load();
 

@@ -93,6 +93,7 @@ namespace FaruSneaker.Object
                 DateTime dt = dtm_productImportDate.Value;
                 if (pl.add(id, name, price, brand, color, size, num, importprice, dt, imageBytes))
                 {
+                    MessageBox.Show("Thành công!");
                     btn_Clear_Click(sender, e);
                     load();
                 }
@@ -112,6 +113,7 @@ namespace FaruSneaker.Object
                 string id = txt_pid.Text;
                 if (pl.remove(id))
                 {
+                    MessageBox.Show("Thành công!");
                     btn_Clear_Click(sender, e);
                     load();
                 }
@@ -163,6 +165,7 @@ namespace FaruSneaker.Object
                 DateTime dt = dtm_productImportDate.Value;
                 if (pl.add(id, name, price, brand, color, size, num, importprice, dt, imageBytes))
                 {
+                    MessageBox.Show("Thành công!");
                     btn_Clear_Click(sender, e);
                     load();
                 }

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
-            btn_search = new CButton();
-            txt_search = new TextBox();
             btn_Print = new Button();
             btn_Remove = new Button();
             dgv_Bill = new DataGridView();
@@ -51,33 +49,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 61;
             pictureBox1.TabStop = false;
-            // 
-            // btn_search
-            // 
-            btn_search.BackColor = Color.FromArgb(232, 232, 232);
-            btn_search.BackgroundColor = Color.FromArgb(232, 232, 232);
-            btn_search.BorderColor = Color.Transparent;
-            btn_search.BorderRadius = 1;
-            btn_search.BorderSize = 0;
-            btn_search.FlatAppearance.BorderSize = 0;
-            btn_search.FlatStyle = FlatStyle.Flat;
-            btn_search.ForeColor = Color.Transparent;
-            btn_search.Image = Properties.Resources.search;
-            btn_search.Location = new Point(570, 15);
-            btn_search.Name = "btn_search";
-            btn_search.Size = new Size(81, 39);
-            btn_search.TabIndex = 62;
-            btn_search.TextColor = Color.Transparent;
-            btn_search.UseVisualStyleBackColor = false;
-            // 
-            // txt_search
-            // 
-            txt_search.BackColor = Color.FromArgb(232, 232, 232);
-            txt_search.Font = new Font("Bahnschrift Condensed", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_search.Location = new Point(60, 15);
-            txt_search.Name = "txt_search";
-            txt_search.Size = new Size(591, 40);
-            txt_search.TabIndex = 63;
             // 
             // btn_Print
             // 
@@ -151,8 +122,6 @@
             Controls.Add(dgv_Bill);
             Controls.Add(btn_Remove);
             Controls.Add(btn_Print);
-            Controls.Add(btn_search);
-            Controls.Add(txt_search);
             Controls.Add(pictureBox1);
             Name = "Revenue_co";
             Size = new Size(1178, 664);
@@ -166,8 +135,6 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private CButton btn_search;
-        private TextBox txt_search;
         private Button btn_Print;
         private Button btn_Remove;
         private DataGridView dgv_Bill;
