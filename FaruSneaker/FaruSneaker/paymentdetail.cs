@@ -142,8 +142,8 @@ namespace FaruSneaker
                         }
                         if (bl.update(this.id, id, num, price, voucher))
                         {
-                            /*Product_logic pl = new Product_logic();
-                            pl.afterAdd(id, num);*/
+                            Product_logic pl = new Product_logic();
+                            pl.afterAdd(id, num);
                             load();
                         }
                     }

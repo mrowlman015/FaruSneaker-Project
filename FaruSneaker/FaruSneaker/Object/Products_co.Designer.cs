@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             btn_search = new CButton();
-            label1 = new Label();
             txt_search = new TextBox();
             groupBox1 = new GroupBox();
+            btn_Clear = new Button();
             txt_importprice = new TextBox();
             txt_price = new TextBox();
             txt_pbrand = new TextBox();
@@ -58,7 +58,6 @@
             label4 = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
-            btn_Clear = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_product).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -84,18 +83,6 @@
             btn_search.TabIndex = 59;
             btn_search.TextColor = Color.Transparent;
             btn_search.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(48, 48, 48);
-            label1.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(1056, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(101, 24);
-            label1.TabIndex = 57;
-            label1.Text = "Đăng xuất";
             // 
             // txt_search
             // 
@@ -142,6 +129,18 @@
             groupBox1.TabIndex = 58;
             groupBox1.TabStop = false;
             groupBox1.Text = "THÔNG TIN SẢN PHẨM";
+            // 
+            // btn_Clear
+            // 
+            btn_Clear.BackColor = Color.FromArgb(224, 224, 224);
+            btn_Clear.ForeColor = Color.Black;
+            btn_Clear.Location = new Point(387, 427);
+            btn_Clear.Name = "btn_Clear";
+            btn_Clear.Size = new Size(133, 32);
+            btn_Clear.TabIndex = 40;
+            btn_Clear.Text = "Xóa tùy chọn";
+            btn_Clear.UseVisualStyleBackColor = false;
+            btn_Clear.Click += btn_Clear_Click;
             // 
             // txt_importprice
             // 
@@ -393,24 +392,11 @@
             pictureBox1.TabIndex = 56;
             pictureBox1.TabStop = false;
             // 
-            // btn_Clear
-            // 
-            btn_Clear.BackColor = Color.FromArgb(224, 224, 224);
-            btn_Clear.ForeColor = Color.Black;
-            btn_Clear.Location = new Point(387, 427);
-            btn_Clear.Name = "btn_Clear";
-            btn_Clear.Size = new Size(133, 32);
-            btn_Clear.TabIndex = 40;
-            btn_Clear.Text = "Xóa tùy chọn";
-            btn_Clear.UseVisualStyleBackColor = false;
-            btn_Clear.Click += btn_Clear_Click;
-            // 
             // Products_co
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btn_search);
-            Controls.Add(label1);
             Controls.Add(txt_search);
             Controls.Add(pictureBox1);
             Controls.Add(groupBox1);
@@ -431,7 +417,6 @@
         #endregion
 
         private CButton btn_search;
-        private Label label1;
         private TextBox txt_search;
         private GroupBox groupBox1;
         private TextBox txt_importprice;
@@ -459,7 +444,7 @@
         private Label label2;
         private Label label4;
         private Label label3;
-        private PictureBox pictureBox1;
         private Button btn_Clear;
+        private PictureBox pictureBox1;
     }
 }

@@ -49,6 +49,7 @@
             payment_co1 = new Object.Payment_co();
             employee_co1 = new Object.Employee_co();
             customer_co1 = new Object.Customer_co();
+            revenue_co1 = new Object.Revenue_co();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -312,6 +313,13 @@
             customer_co1.Name = "customer_co1";
             customer_co1.Size = new Size(1179, 697);
             customer_co1.TabIndex = 1;
+            //
+            // revenue_co1
+            //
+            revenue_co1.Location = new Point(-4, 1);
+            revenue_co1.Name = "revenue_co1";
+            revenue_co1.Size = new Size(1178, 664);
+            revenue_co1.TabIndex = 1;
             // 
             // Mainpage
             // 
@@ -358,5 +366,6 @@
         private Object.Service_co service_co1;
         private Object.Products_co products_co1;
         private Object.Account_co account_co1;
+        private Object.Revenue_co revenue_co1;
     }
 }

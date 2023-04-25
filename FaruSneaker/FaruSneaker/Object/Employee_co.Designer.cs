@@ -43,8 +43,8 @@
             label7 = new Label();
             dob = new DateTimePicker();
             label6 = new Label();
-            button3 = new Button();
-            button1 = new Button();
+            btn_remove = new Button();
+            btn_update = new Button();
             label5 = new Label();
             label3 = new Label();
             label11 = new Label();
@@ -53,7 +53,6 @@
             label4 = new Label();
             btn_search = new CButton();
             txt_search = new TextBox();
-            label1 = new Label();
             pictureBox1 = new PictureBox();
             error = new ErrorProvider(components);
             groupBox1.SuspendLayout();
@@ -78,8 +77,8 @@
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(dob);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(button3);
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(btn_remove);
+            groupBox1.Controls.Add(btn_update);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label11);
@@ -214,29 +213,29 @@
             label6.TabIndex = 45;
             label6.Text = "Ngày sinh";
             // 
-            // button3
+            // btn_remove
             // 
-            button3.BackColor = Color.FromArgb(233, 197, 57);
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(690, 555);
-            button3.Name = "button3";
-            button3.Size = new Size(181, 37);
-            button3.TabIndex = 11;
-            button3.Text = "Xóa ";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            btn_remove.BackColor = Color.FromArgb(233, 197, 57);
+            btn_remove.ForeColor = Color.Black;
+            btn_remove.Location = new Point(690, 555);
+            btn_remove.Name = "btn_remove";
+            btn_remove.Size = new Size(181, 37);
+            btn_remove.TabIndex = 11;
+            btn_remove.Text = "Xóa ";
+            btn_remove.UseVisualStyleBackColor = false;
+            btn_remove.Click += button3_Click;
             // 
-            // button1
+            // btn_update
             // 
-            button1.BackColor = Color.FromArgb(233, 197, 57);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(899, 555);
-            button1.Name = "button1";
-            button1.Size = new Size(181, 37);
-            button1.TabIndex = 12;
-            button1.Text = "Cập nhật";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btn_update.BackColor = Color.FromArgb(233, 197, 57);
+            btn_update.ForeColor = Color.Black;
+            btn_update.Location = new Point(899, 555);
+            btn_update.Name = "btn_update";
+            btn_update.Size = new Size(181, 37);
+            btn_update.TabIndex = 12;
+            btn_update.Text = "Cập nhật";
+            btn_update.UseVisualStyleBackColor = false;
+            btn_update.Click += button1_Click;
             // 
             // label5
             // 
@@ -329,18 +328,6 @@
             txt_search.Size = new Size(591, 40);
             txt_search.TabIndex = 18;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(48, 48, 48);
-            label1.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(1059, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(101, 24);
-            label1.TabIndex = 16;
-            label1.Text = "Đăng xuất";
-            // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.FromArgb(48, 48, 48);
@@ -363,7 +350,6 @@
             Controls.Add(groupBox1);
             Controls.Add(btn_search);
             Controls.Add(txt_search);
-            Controls.Add(label1);
             Controls.Add(pictureBox1);
             Name = "Employee_co";
             Size = new Size(1183, 690);
@@ -393,8 +379,8 @@
         private Label label7;
         private DateTimePicker dob;
         private Label label6;
-        private Button button3;
-        private Button button1;
+        private Button btn_remove;
+        private Button btn_update;
         private Label label5;
         private Label label3;
         private Label label11;
@@ -403,7 +389,6 @@
         private Label label4;
         private CButton btn_search;
         private TextBox txt_search;
-        private Label label1;
         private PictureBox pictureBox1;
         private ErrorProvider error;
     }

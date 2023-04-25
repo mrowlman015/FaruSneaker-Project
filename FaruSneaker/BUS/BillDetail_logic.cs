@@ -23,6 +23,11 @@ namespace BUS
             return data.getTotalCash(id);
         }
 
+        public int getTotalCashService(string id)
+        {
+            return data.getTotalCashService(id);
+        }
+
         public bool checkBillID(string id, string pid)
         {
             return data.checkBillID(id, pid);
@@ -38,6 +43,11 @@ namespace BUS
             return data.add(id, pid, num, price, voucher);
         }
 
+        public bool add(string id, string sid, int price, string des)
+        {
+            return data.add(id, sid, price, des);
+        }
+
         public bool remove(string id)
         {
             return data.remove(id);
@@ -48,9 +58,19 @@ namespace BUS
             return data.removeProduct(id, pid);
         }
 
+        public bool removeService(string id, string sid)
+        {
+            return data.removeService(id, sid);
+        }
+
         public bool update(string id, string pid, int num, int price, int voucher)
         {
             return data.update(id, pid, num, price, voucher);
+        }
+
+        public bool update(string id, string sid, int price, string des)
+        {
+            return data.update(id, sid, price, des);
         }
 
         public bool cal_voucher(string id, int voucher)

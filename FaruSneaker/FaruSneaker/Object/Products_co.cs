@@ -49,7 +49,7 @@ namespace FaruSneaker.Object
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
             if (txt_pname.Text == "" || txt_price.Text == "" || txt_pbrand.Text == "")
             {
                 MessageBox.Show("Hãy đảm bảo đầy đủ nội dung trước khi thực hiện!");
@@ -74,12 +74,12 @@ namespace FaruSneaker.Object
                 }
                 int size = Convert.ToInt32(nbr_productSize.Value);
                 int num = Convert.ToInt32(nbr_productNum.Value);
-                if (size == 0)
+                if (size <= 0)
                 {
                     MessageBox.Show("Hãy chọn kích thước lớn hơn 0!");
                     return;
                 }
-                if (num == 0)
+                if (num <= 0)
                 {
                     MessageBox.Show("Hãy chọn số lượng lớn hơn 0!");
                     return;
@@ -97,7 +97,7 @@ namespace FaruSneaker.Object
                     load();
                 }
             }
-            
+
         }
 
         private void btn_delete_Click(object sender, EventArgs e)

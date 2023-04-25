@@ -29,6 +29,35 @@ namespace DAL
             return id;
         }
 
+        public int getTotalCash()
+        {
+            data.Connection();
+            string query = "select BillPrice from Bill";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            int total = 0;
+            while (reader.Read())
+            {
+                total += Convert.ToInt32(reader[0].ToString());
+            }
+            data.Disconnection();
+            return total;
+        }
+
+        public bool removeAll()
+        {
+            data.Connection();
+            string query = "delete from Bill";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            int res = cmd.ExecuteNonQuery();
+            data.Disconnection();
+            if (res > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public bool add(string id, string cusid, int price, string staffid)
         {
             data.Connection();

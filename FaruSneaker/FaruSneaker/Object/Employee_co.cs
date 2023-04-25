@@ -27,50 +27,102 @@ namespace FaruSneaker.Object
             table_E.DataSource = data.load();
         }
 
+        private void setEditingMode(bool enable)
+        {
+            if (!enable)
+            {
+                table_E.ClearSelection();
+            }
+            btn_add.Enabled = !enable;
+            btn_remove.Enabled = enable;
+            btn_update.Enabled = enable;
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string Id = txt_eid.Text;
-            string name = txt_ename.Text;
-            string phone = txt_ephone.Text;
-            string ci = txt_ci.Text;
-            DateTime DOB = dob.Value;
-            string add = txt_add.Text;
-            int salary = Int32.Parse(txt_salary.Text);
-
-            if (!int.TryParse(txt_salary.Text, out salary))
+            int checkphone = 0;
+            int checkci = 0;
+            int checksalary = 0;
+            if (!int.TryParse(txt_ephone.Text, out checkphone))
             {
-                error.SetError(txt_salary, "Giá trị lương không bao gồm kí tự chữ cái");
+                MessageBox.Show("Số điện thoại không bao gồm kí tự chữ cái");
+                error.SetError(txt_salary, "Số điện thoại không bao gồm kí tự chữ cái");
                 return;
             }
             else
             {
-                error.Clear();
+                if (!int.TryParse(txt_ci.Text, out checkci))
+                {
+                    MessageBox.Show("Căn cước công dân không bao gồm kí tự chữ cái");
+                    error.SetError(txt_salary, "Căn cước công dân không bao gồm kí tự chữ cái");
+                    return;
+                }
+                else
+                {
+                    if (!int.TryParse(txt_salary.Text, out checksalary))
+                    {
+                        MessageBox.Show("Giá trị lương không bao gồm kí tự chữ cái");
+                        error.SetError(txt_salary, "Giá trị lương không bao gồm kí tự chữ cái");
+                        return;
+                    }
+                    else
+                    {
+                        error.Clear();
+                        string Id = txt_eid.Text;
+                        string name = txt_ename.Text;
+                        string phone = txt_ephone.Text;
+                        string ci = txt_ci.Text;
+                        DateTime DOB = dob.Value;
+                        string add = txt_add.Text;
+                        int salary = Int32.Parse(txt_salary.Text);
+                        if (data.update(Id, name, phone, ci, DOB, add, salary))
+                        {
+                            setEditingMode(false);
+                            MessageBox.Show("Thành công!");
+                            reset();
+                            load();
+                        }
+                        else
+                        {
+                            setEditingMode(false);
+                            reset();
+                            MessageBox.Show("Thất bại!");
+                            return;
+                        }
+                    }
+                }
             }
-
-            if (data.update(Id, name, phone, ci, DOB, add, salary))
-            {
-                reset();
-                load();
-            }
-
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string id = txt_eid.Text;
-            if (MessageBox.Show("Bạn có muốn xóa nhân viên vừa chọn không?", "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (txt_eid.Text == "")
             {
-                if (data.delete(id))
+                MessageBox.Show("Hãy đảm bảo bạn đã chọn id của nhân viên!");
+                return;
+            }
+            else
+            {
+                string id = txt_eid.Text;
+                if (MessageBox.Show("Bạn có muốn xóa nhân viên vừa chọn không?", "Xác nhận xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    reset();
-                    MessageBox.Show("Xóa thành công");
-                    load();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa không thành công");
+                    if (data.delete(id))
+                    {
+                        setEditingMode(false);
+                        reset();
+                        MessageBox.Show("Xóa thành công");
+                        load();
+                    }
+                    else
+                    {
+                        setEditingMode(false);
+                        MessageBox.Show("Xóa không thành công");
+                        return;
+                    }
                 }
             }
+
         }
 
         private void reset()
@@ -85,40 +137,62 @@ namespace FaruSneaker.Object
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            if (txt_ename.Text == "" || txt_ename.Text == "" || txt_ename.Text == "" || txt_ename.Text == "" || txt_salary.Text == "")
+            int checkphone = 0;
+            int checkci = 0;
+            int checksalary = 0;
+            if (!int.TryParse(txt_ephone.Text, out checkphone))
             {
-                MessageBox.Show("Hãy đảm bảo đầy đủ nội dung trước khi thực hiện!");
+                MessageBox.Show("Số điện thoại không bao gồm kí tự chữ cái");
+                error.SetError(txt_ephone, "Số điện thoại không bao gồm kí tự chữ cái");
                 return;
             }
             else
             {
-                string Id = txt_eid.Text;
-                string name = txt_ename.Text;
-                string phone = txt_ephone.Text;
-                string ci = txt_ci.Text;
-                DateTime DOB = dob.Value;
-                string add = txt_add.Text;
-                int salary = Int32.Parse(txt_salary.Text);
-                if (!int.TryParse(txt_salary.Text, out salary))
+                if (!int.TryParse(txt_ci.Text, out checkci))
                 {
-                    error.SetError(txt_salary, "Giá trị lương không bao gồm kí tự chữ cái");
+                    MessageBox.Show("Căn cước công dân không bao gồm kí tự chữ cái");
+                    error.SetError(txt_ci, "Căn cước công dân không bao gồm kí tự chữ cái");
                     return;
                 }
                 else
                 {
-                    error.Clear();
+                    if (!int.TryParse(txt_salary.Text, out checksalary))
+                    {
+                        MessageBox.Show("Giá trị lương không bao gồm kí tự chữ cái");
+                        error.SetError(txt_salary, "Giá trị lương không bao gồm kí tự chữ cái");
+                        return;
+                    }
+                    else
+                    {
+                        error.Clear();
+                        string Id = txt_eid.Text;
+                        string name = txt_ename.Text;
+                        string phone = txt_ephone.Text;
+                        string ci = txt_ci.Text;
+                        DateTime DOB = dob.Value;
+                        string add = txt_add.Text;
+                        int salary = Int32.Parse(txt_salary.Text);
+                        if (data.add(Id, name, phone, ci, DOB, add, salary))
+                        {
+                            setEditingMode(false);
+                            MessageBox.Show("Thành công!");
+                            reset();
+                            load();
+                        }
+                        else
+                        {
+                            setEditingMode(false);
+                            reset();
+                            MessageBox.Show("Thất bại!");
+                            return;
+                        }
+                    }
                 }
-
-                if (data.add(Id, name, phone, ci, DOB, add, salary))
-                {
-                    reset();
-                    load();
-                }
-            } 
+            }
         }
-
         private void table_E_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            setEditingMode(true);
             int index = e.RowIndex;
             if (index < 0 || index >= table_E.RowCount)
             {
@@ -180,6 +254,7 @@ namespace FaruSneaker.Object
 
         private void Employee_co_Load(object sender, EventArgs e)
         {
+            setEditingMode(false);
             txt_eid.ReadOnly = true;
             load();
         }

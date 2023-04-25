@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -78,6 +79,22 @@ namespace DAL
             return cash;
         }
 
+        public int getTotalCashService(string id)
+        {
+            data.Connection();
+            string query = "select ServicePrice from BillDetailForService where BillID = @id";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader reader = cmd.ExecuteReader();
+            int cash = 0;
+            while (reader.Read())
+            {
+                cash += Convert.ToInt32(reader[0].ToString());
+            }
+            data.Disconnection();
+            return cash;
+        }
+
         public bool add(string id, string pid, int num, int price, int voucher)
         {
             data.Connection();
@@ -97,12 +114,30 @@ namespace DAL
             return false;
         }
 
+        public bool add(string id, string sid, int price, string des)
+        {
+            data.Connection();
+            string query = "insert into BillDetailForService values (@id, @sid, @price, @des)";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@sid", sid);
+            cmd.Parameters.AddWithValue("@price", price);
+            cmd.Parameters.AddWithValue("@des", des);
+            int res = cmd.ExecuteNonQuery();
+            data.Disconnection();
+            if (res > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public bool remove(string id)
         {
             data.Connection();
             string query = "delete from BillDetail where BillID = @id";
             SqlCommand cmd = new SqlCommand(query, data.Conn);
-            cmd.Parameters.AddWithValue("@id" , id);
+            cmd.Parameters.AddWithValue("@id", id);
             int res = cmd.ExecuteNonQuery();
             data.Disconnection();
             if (res > 0)
@@ -128,6 +163,22 @@ namespace DAL
             return false;
         }
 
+        public bool removeService(string id, string sid)
+        {
+            data.Connection();
+            string query = "delete from BillDetailForService where BillID = @id and ServiceID = @sid";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@sid", sid);
+            int res = cmd.ExecuteNonQuery();
+            data.Disconnection();
+            if (res > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public bool update(string id, string pid, int num, int price, int voucher)
         {
             data.Connection();
@@ -138,6 +189,24 @@ namespace DAL
             cmd.Parameters.AddWithValue("@num", num);
             cmd.Parameters.AddWithValue("@price", price);
             cmd.Parameters.AddWithValue("@voucher", voucher);
+            int res = cmd.ExecuteNonQuery();
+            data.Disconnection();
+            if (res > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool update(string id, string sid, int price, string des)
+        {
+            data.Connection();
+            string query = "update BillDetailForService set ServicePrice = @price, ServiceDes = @des where BillID = @id and ServiceID = @sid";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@sid", sid);
+            cmd.Parameters.AddWithValue("@price", price);
+            cmd.Parameters.AddWithValue("@des", des);
             int res = cmd.ExecuteNonQuery();
             data.Disconnection();
             if (res > 0)

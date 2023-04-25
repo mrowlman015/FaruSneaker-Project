@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox2 = new GroupBox();
+            btn_Service = new Button();
             rtx_TotalCash = new TextBox();
             rtx_IntoCash = new TextBox();
             rtx_Discount = new TextBox();
@@ -62,7 +63,6 @@
             label7 = new Label();
             label9 = new Label();
             panel8 = new Panel();
-            label1 = new Label();
             cButton7 = new CButton();
             rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             pictureBox1 = new PictureBox();
@@ -77,6 +77,7 @@
             // groupBox2
             // 
             groupBox2.BackgroundImage = Properties.Resources._while;
+            groupBox2.Controls.Add(btn_Service);
             groupBox2.Controls.Add(rtx_TotalCash);
             groupBox2.Controls.Add(rtx_IntoCash);
             groupBox2.Controls.Add(rtx_Discount);
@@ -102,6 +103,18 @@
             groupBox2.TabIndex = 92;
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin các mặt hàng";
+            // 
+            // btn_Service
+            // 
+            btn_Service.BackColor = Color.FromArgb(233, 197, 57);
+            btn_Service.ForeColor = Color.Black;
+            btn_Service.Location = new Point(395, 116);
+            btn_Service.Name = "btn_Service";
+            btn_Service.Size = new Size(194, 37);
+            btn_Service.TabIndex = 109;
+            btn_Service.Text = "Dịch vụ";
+            btn_Service.UseVisualStyleBackColor = false;
+            btn_Service.Click += btn_Service_Click;
             // 
             // rtx_TotalCash
             // 
@@ -414,7 +427,6 @@
             // 
             // panel8
             // 
-            panel8.Controls.Add(label1);
             panel8.Controls.Add(cButton7);
             panel8.Controls.Add(rjTextBox1);
             panel8.Controls.Add(pictureBox1);
@@ -422,18 +434,6 @@
             panel8.Name = "panel8";
             panel8.Size = new Size(1175, 78);
             panel8.TabIndex = 89;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(48, 48, 48);
-            label1.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(1053, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(101, 24);
-            label1.TabIndex = 1;
-            label1.Text = "Đăng xuất";
             // 
             // cButton7
             // 
@@ -503,7 +503,6 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel8.ResumeLayout(false);
-            panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -545,9 +544,9 @@
         private Label label7;
         private Label label9;
         private Panel panel8;
-        private Label label1;
         private CButton cButton7;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
         private PictureBox pictureBox1;
+        private Button btn_Service;
     }
 }

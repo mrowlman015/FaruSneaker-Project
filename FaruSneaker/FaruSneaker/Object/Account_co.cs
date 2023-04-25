@@ -146,7 +146,7 @@ namespace FaruSneaker.Object
 
         private void label1_Click(object sender, EventArgs e)
         {
-        
+
         }
     }
 }

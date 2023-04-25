@@ -203,5 +203,35 @@ namespace FaruSneaker.Object
             rtx_BillID.ReadOnly = true;
             loadFile();
         }
+
+        private void btn_Service_Click(object sender, EventArgs e)
+        {
+            if (cbx_StaffID.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn mã nhân viên");
+                return;
+            }
+            else
+            {
+                Customer_logic cs = new Customer_logic();
+                string? cusid = cbx_CusID.SelectedItem.ToString();
+                if (cbx_CusID.SelectedItem == null)
+                {
+                    cs.add(null, "user", "user");
+                    cusid = cs.getCurrentID();
+                }
+                bl.add(null, cusid, 0, cbx_StaffID.SelectedItem.ToString());
+
+                string id = bl.getCurrentID();
+                servicedetail p = new servicedetail(id);
+                this.Hide();
+                p.ShowDialog();
+
+                BillDetail_logic bi = new BillDetail_logic();
+                rtx_TotalCash.Text = bi.getTotalCashService(id).ToString();
+                dgv_Payment.DataSource = bi.load(id);
+                this.Show();
+            }
+        }
     }
 }

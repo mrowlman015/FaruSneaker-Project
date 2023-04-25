@@ -54,7 +54,7 @@ namespace FaruSneaker
 
         private void btn_home_Click(object sender, EventArgs e)
         {
-
+            revenue_co1.BringToFront();
         }
 
         private void btn_ser_Click_1(object sender, EventArgs e)

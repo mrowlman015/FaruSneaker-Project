@@ -35,7 +35,7 @@
     <Compile Update="Object\Service_co.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Object\TK.cs">
+    <Compile Update="Object\Revenue_co.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="payment.cs">
@@ -57,6 +57,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="servicedetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Timek.cs">
