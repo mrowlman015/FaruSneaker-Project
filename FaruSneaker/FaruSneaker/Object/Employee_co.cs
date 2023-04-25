@@ -241,7 +241,7 @@ namespace FaruSneaker.Object
             DataTable res = data.searchById(searchid);
             if (res.Rows.Count == 0)
             {
-                MessageBox.Show("No employee found");
+                MessageBox.Show("Không tìm thấy nhân viên!");
                 load();
             }
             else

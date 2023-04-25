@@ -136,7 +136,7 @@ namespace FaruSneaker.Object
             DataTable res = data.searchByName(searchname);
             if (res.Rows.Count == 0)
             {
-                MessageBox.Show("No Customer found");
+                MessageBox.Show("Không tìm thấy khách hàng!");
                 load();
             }
             else

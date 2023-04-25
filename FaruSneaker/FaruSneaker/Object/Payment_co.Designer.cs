@@ -31,23 +31,11 @@
             groupBox2 = new GroupBox();
             btn_Service = new Button();
             rtx_TotalCash = new TextBox();
-            rtx_IntoCash = new TextBox();
-            rtx_Discount = new TextBox();
-            rtx_Price = new TextBox();
-            rtx_PName = new TextBox();
-            rtx_PID = new TextBox();
             btn_Add = new Button();
             btn_CancelBill = new Button();
             btn_PayBill = new Button();
             label5 = new Label();
             dgv_Payment = new DataGridView();
-            nbr_Num = new NumericUpDown();
-            label12 = new Label();
-            label13 = new Label();
-            label15 = new Label();
-            label16 = new Label();
-            label17 = new Label();
-            label18 = new Label();
             groupBox1 = new GroupBox();
             rtx_StaffName = new TextBox();
             rtx_CusName = new TextBox();
@@ -68,7 +56,6 @@
             pictureBox1 = new PictureBox();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Payment).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nbr_Num).BeginInit();
             groupBox1.SuspendLayout();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -79,23 +66,11 @@
             groupBox2.BackgroundImage = Properties.Resources._while;
             groupBox2.Controls.Add(btn_Service);
             groupBox2.Controls.Add(rtx_TotalCash);
-            groupBox2.Controls.Add(rtx_IntoCash);
-            groupBox2.Controls.Add(rtx_Discount);
-            groupBox2.Controls.Add(rtx_Price);
-            groupBox2.Controls.Add(rtx_PName);
-            groupBox2.Controls.Add(rtx_PID);
             groupBox2.Controls.Add(btn_Add);
             groupBox2.Controls.Add(btn_CancelBill);
             groupBox2.Controls.Add(btn_PayBill);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(dgv_Payment);
-            groupBox2.Controls.Add(nbr_Num);
-            groupBox2.Controls.Add(label12);
-            groupBox2.Controls.Add(label13);
-            groupBox2.Controls.Add(label15);
-            groupBox2.Controls.Add(label16);
-            groupBox2.Controls.Add(label17);
-            groupBox2.Controls.Add(label18);
             groupBox2.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.Location = new Point(31, 242);
             groupBox2.Name = "groupBox2";
@@ -108,7 +83,7 @@
             // 
             btn_Service.BackColor = Color.FromArgb(233, 197, 57);
             btn_Service.ForeColor = Color.Black;
-            btn_Service.Location = new Point(395, 116);
+            btn_Service.Location = new Point(524, 40);
             btn_Service.Name = "btn_Service";
             btn_Service.Size = new Size(194, 37);
             btn_Service.TabIndex = 109;
@@ -123,50 +98,15 @@
             rtx_TotalCash.Size = new Size(234, 32);
             rtx_TotalCash.TabIndex = 108;
             // 
-            // rtx_IntoCash
-            // 
-            rtx_IntoCash.Location = new Point(885, 76);
-            rtx_IntoCash.Name = "rtx_IntoCash";
-            rtx_IntoCash.Size = new Size(234, 32);
-            rtx_IntoCash.TabIndex = 107;
-            // 
-            // rtx_Discount
-            // 
-            rtx_Discount.Location = new Point(885, 42);
-            rtx_Discount.Name = "rtx_Discount";
-            rtx_Discount.Size = new Size(234, 32);
-            rtx_Discount.TabIndex = 106;
-            // 
-            // rtx_Price
-            // 
-            rtx_Price.Location = new Point(524, 39);
-            rtx_Price.Name = "rtx_Price";
-            rtx_Price.Size = new Size(234, 32);
-            rtx_Price.TabIndex = 105;
-            // 
-            // rtx_PName
-            // 
-            rtx_PName.Location = new Point(145, 75);
-            rtx_PName.Name = "rtx_PName";
-            rtx_PName.Size = new Size(234, 32);
-            rtx_PName.TabIndex = 104;
-            // 
-            // rtx_PID
-            // 
-            rtx_PID.Location = new Point(145, 39);
-            rtx_PID.Name = "rtx_PID";
-            rtx_PID.Size = new Size(234, 32);
-            rtx_PID.TabIndex = 103;
-            // 
             // btn_Add
             // 
             btn_Add.BackColor = Color.FromArgb(233, 197, 57);
             btn_Add.ForeColor = Color.Black;
-            btn_Add.Location = new Point(185, 116);
+            btn_Add.Location = new Point(185, 40);
             btn_Add.Name = "btn_Add";
             btn_Add.Size = new Size(194, 37);
             btn_Add.TabIndex = 99;
-            btn_Add.Text = "Thêm hóa đơn";
+            btn_Add.Text = "Giày dép";
             btn_Add.UseVisualStyleBackColor = false;
             btn_Add.Click += btn_Add_Click;
             // 
@@ -208,80 +148,13 @@
             // 
             dgv_Payment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Payment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Payment.Location = new Point(19, 159);
+            dgv_Payment.Location = new Point(19, 101);
             dgv_Payment.Name = "dgv_Payment";
             dgv_Payment.RowHeadersWidth = 51;
             dgv_Payment.RowTemplate.Height = 29;
-            dgv_Payment.Size = new Size(1105, 238);
+            dgv_Payment.Size = new Size(1105, 296);
             dgv_Payment.TabIndex = 90;
             dgv_Payment.CellClick += dgv_Payment_CellClick;
-            // 
-            // nbr_Num
-            // 
-            nbr_Num.Location = new Point(525, 76);
-            nbr_Num.Name = "nbr_Num";
-            nbr_Num.Size = new Size(233, 32);
-            nbr_Num.TabIndex = 88;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(782, 47);
-            label12.Name = "label12";
-            label12.Size = new Size(79, 24);
-            label12.TabIndex = 84;
-            label12.Text = "Chiết khấu";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(782, 84);
-            label13.Name = "label13";
-            label13.Size = new Size(78, 24);
-            label13.TabIndex = 85;
-            label13.Text = "Thành tiền";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(14, 50);
-            label15.Name = "label15";
-            label15.Size = new Size(97, 24);
-            label15.TabIndex = 69;
-            label15.Text = "Mã sản phẩm";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label16.Location = new Point(395, 47);
-            label16.Name = "label16";
-            label16.Size = new Size(59, 24);
-            label16.TabIndex = 71;
-            label16.Text = "Đơn giá";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label17.Location = new Point(395, 84);
-            label17.Name = "label17";
-            label17.Size = new Size(69, 24);
-            label17.TabIndex = 74;
-            label17.Text = "Số lượng";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label18.Location = new Point(14, 84);
-            label18.Name = "label18";
-            label18.Size = new Size(100, 24);
-            label18.TabIndex = 78;
-            label18.Text = "Tên sản phẩm";
             // 
             // groupBox1
             // 
@@ -500,7 +373,6 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Payment).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nbr_Num).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             panel8.ResumeLayout(false);
@@ -513,23 +385,11 @@
 
         private GroupBox groupBox2;
         private TextBox rtx_TotalCash;
-        private TextBox rtx_IntoCash;
-        private TextBox rtx_Discount;
-        private TextBox rtx_Price;
-        private TextBox rtx_PName;
-        private TextBox rtx_PID;
         private Button btn_Add;
         private Button btn_CancelBill;
         private Button btn_PayBill;
         private Label label5;
         private DataGridView dgv_Payment;
-        private NumericUpDown nbr_Num;
-        private Label label12;
-        private Label label13;
-        private Label label15;
-        private Label label16;
-        private Label label17;
-        private Label label18;
         private GroupBox groupBox1;
         private TextBox rtx_StaffName;
         private TextBox rtx_CusName;

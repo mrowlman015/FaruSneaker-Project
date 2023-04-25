@@ -15,7 +15,7 @@ namespace FaruSneaker.Object
     {
         Product_logic pl = new Product_logic();
         byte[]? imageBytes = null;
-
+        string id = "";
         public Products_co()
         {
             InitializeComponent();
@@ -388,7 +388,21 @@ namespace FaruSneaker.Object
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-
+            string searchname = txt_search.Text;
+            DataTable res = pl.searchByName(searchname);
+            if (res.Rows.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy sản phẩm");
+                load();
+            }
+            else
+            {
+                dgv_product.DataSource = res;
+            }
+            if (searchname == "")
+            {
+                load();
+            }
         }
 
         private void btn_Clear_Click_1(object sender, EventArgs e)
@@ -411,7 +425,7 @@ namespace FaruSneaker.Object
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && !isRowNullOrEmpty(dgv_product.Rows[e.RowIndex]))
             {
                 DataGridViewRow row = dgv_product.Rows[e.RowIndex];
-
+                this.id = row.Cells[0].ToString();
                 txt_pid.Text = row.Cells[0].Value.ToString();
                 txt_pname.Text = row.Cells[1].Value.ToString();
                 txt_price.Text = row.Cells[2].Value.ToString();
@@ -421,6 +435,13 @@ namespace FaruSneaker.Object
                 nbr_productNum.Value = Convert.ToDecimal(row.Cells[6].Value);
                 txt_importprice.Text = Convert.ToString(row.Cells[7].Value);
                 dtm_productImportDate.Value = Convert.ToDateTime(row.Cells[8].Value);
+                /*if (this.id != "")
+                {
+                    byte[] imageData = pl.getImage(this.id);
+                    MemoryStream ms = new MemoryStream(imageData);
+                    Image img = Image.FromStream(ms);
+                    pictureBox1.Image = img;
+                }*/
             }
         }
 

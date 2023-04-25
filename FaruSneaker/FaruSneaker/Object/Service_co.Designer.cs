@@ -243,6 +243,7 @@
             btn_search.TabIndex = 54;
             btn_search.TextColor = Color.Transparent;
             btn_search.UseVisualStyleBackColor = false;
+            btn_search.Click += btn_search_Click;
             // 
             // txt_search
             // 

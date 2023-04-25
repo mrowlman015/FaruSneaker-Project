@@ -131,5 +131,24 @@ namespace FaruSneaker.Object
             load();
             setEditingMode(false);
         }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            string searchname = txt_search.Text;
+            DataTable res = sl.searchByName(searchname);
+            if (res.Rows.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy dịch vụ!");
+                load();
+            }
+            else
+            {
+                dgv_service.DataSource = res;
+            }
+            if (searchname == "")
+            {
+                load();
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DAL
 {
@@ -47,12 +48,12 @@ namespace DAL
         public bool removeAll()
         {
             data.Connection();
-            string query0 = "delete from BillDetail";
+            string query0 = "delete from BillDetailForService";
             SqlCommand cmd0 = new SqlCommand(query0, data.Conn);
             int res0 = cmd0.ExecuteNonQuery();
             if (res0 > 0)
             {
-                string query1 = "delete from BillDetailForService";
+                string query1 = "delete from BillDetail";
                 SqlCommand cmd1 = new SqlCommand(query1, data.Conn);
                 int res1 = cmd1.ExecuteNonQuery();
                 if (res1 > 0)
@@ -65,16 +66,19 @@ namespace DAL
                     {
                         return true;
                     }
+                    MessageBox.Show("3");
                     return false;
                 }
                 else
                 {
+                    MessageBox.Show("2");
                     data.Disconnection();
                     return false;
                 }
             }
             else
             {
+                MessageBox.Show("1");
                 data.Disconnection();
                 return false;
             }

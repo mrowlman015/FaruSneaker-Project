@@ -43,5 +43,15 @@ namespace BUS
         {
             return data.update(id, name, price, brand, color, size, num, importprice, importdate, image);
         }
+
+        public DataTable searchByName(string name)
+        {
+            return data.searchByName(name);
+        }
+
+        public byte[] getImage(string id)
+        {
+            return data.getImage(id);
+        }
     }
 }

@@ -222,5 +222,30 @@ namespace DAL
             int i = cmd.ExecuteNonQuery();
             data.Disconnection();
         }*/
+
+        public DataTable searchByName(string name)
+        {
+            string query = $"SELECT * FROM Item WHERE ItemName LIKE N'%{name}%'";
+            data.Connection();
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            cmd.Parameters.AddWithValue("@Name", name);
+            SqlDataReader reader = cmd.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(reader);
+            reader.Close();
+            data.Disconnection();
+            return table;
+        }
+
+        public byte[] getImage(string id)
+        {
+            data.Connection();
+            string query = "select ImageProduct from Item where ItemID = @id";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            byte[] res = (byte[])cmd.ExecuteScalar();
+            data.Disconnection();
+            return res;
+        }
     }
 }

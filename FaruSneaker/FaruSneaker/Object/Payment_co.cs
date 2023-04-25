@@ -35,13 +35,6 @@ namespace FaruSneaker.Object
             rtx_CusName.Text = "";
             rtx_StaffName.Text = "";
 
-            rtx_PID.Text = "";
-            rtx_PName.Text = "";
-            rtx_Price.Text = "";
-            nbr_Num.Value = 0;
-            rtx_Discount.Text = "";
-            rtx_IntoCash.Text = "";
-            rtx_TotalCash.Text = "";
         }
 
         private void load(string id)
@@ -147,11 +140,6 @@ namespace FaruSneaker.Object
             {
                 DataGridViewRow row = dgv_Payment.Rows[e.RowIndex];
 
-                rtx_PID.Text = row.Cells[0].Value.ToString();
-                rtx_PName.Text = row.Cells[1].Value.ToString();
-                nbr_Num.Value = Convert.ToDecimal(row.Cells[2].Value);
-                rtx_Price.Text = row.Cells[3].Value.ToString();
-                rtx_IntoCash.Text = (Convert.ToInt32(rtx_Price.Text) * (Convert.ToInt32(nbr_Num.Value))).ToString();
             }
         }
 
@@ -205,8 +193,17 @@ namespace FaruSneaker.Object
                     MessageBox.Show("Thất bại!");
                 }
             }
-            
 
+
+        }
+
+        private void reset()
+        {
+            rtx_BillID.Text = "";
+            cbx_CusID.Text = "";
+            cbx_StaffID.Text = "";
+            rtx_CusName.Text = "";
+            rtx_StaffName.Text = "";
         }
 
         private void btn_PayBill_Click(object sender, EventArgs e)
@@ -214,10 +211,12 @@ namespace FaruSneaker.Object
             string? cusid = cbx_CusID.SelectedItem.ToString();
             if (bl.update(bl.getCurrentID(), cusid, Convert.ToInt32(rtx_TotalCash.Text), cbx_StaffID.SelectedItem.ToString()))
             {
+                reset();
                 MessageBox.Show("Thành công!");
             }
             else
             {
+                reset();
                 MessageBox.Show("Thất bại!");
             }
         }
@@ -273,7 +272,7 @@ namespace FaruSneaker.Object
                 rtx_BillID.Text = row[0].ToString();
                 cbx_CusID.Text = row[1].ToString();
                 cbx_CusID_SelectedIndexChanged(sender, e);
-                cbx_StaffID.Text = row[2].ToString();
+                cbx_StaffID.Text = row[3].ToString();
                 cbx_StaffID_SelectedIndexChanged(sender, e);
                 BillDetail_logic bi = new BillDetail_logic();
                 string? id = row[0].ToString();
@@ -291,7 +290,7 @@ namespace FaruSneaker.Object
                     }
                 }
             }
-            
+
         }
     }
 }
