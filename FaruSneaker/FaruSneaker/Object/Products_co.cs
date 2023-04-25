@@ -72,14 +72,12 @@ namespace FaruSneaker.Object
                     MessageBox.Show("Vui lòng chọn hình ảnh!");
                     return;
                 }
-                int size = Convert.ToInt32(nbr_productSize.Value);
-                int num = Convert.ToInt32(nbr_productNum.Value);
-                if (size <= 0)
+                if (Convert.ToInt32(nbr_productSize.Value) <= 0)
                 {
                     MessageBox.Show("Hãy chọn kích thước lớn hơn 0!");
                     return;
                 }
-                if (num <= 0)
+                if (Convert.ToInt32(nbr_productNum.Value) <= 0)
                 {
                     MessageBox.Show("Hãy chọn số lượng lớn hơn 0!");
                     return;
@@ -89,6 +87,8 @@ namespace FaruSneaker.Object
                     MessageBox.Show("Hãy nhập giá nhập hàng!");
                     return;
                 }
+                int size = Convert.ToInt32(nbr_productSize.Value);
+                int num = Convert.ToInt32(nbr_productNum.Value);
                 int importprice = Convert.ToInt32(txt_importprice.Text);
                 DateTime dt = dtm_productImportDate.Value;
                 if (pl.add(id, name, price, brand, color, size, num, importprice, dt, imageBytes))
@@ -102,34 +102,70 @@ namespace FaruSneaker.Object
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            string id = txt_pid.Text;
-            if (pl.remove(id))
+            if (txt_pname.Text == "" || txt_price.Text == "" || txt_pbrand.Text == "")
             {
-                btn_Clear_Click(sender, e);
-                load();
+                MessageBox.Show("Hãy đảm bảo đầy đủ nội dung trước khi thực hiện!");
+                return;
+            }
+            else
+            {
+                string id = txt_pid.Text;
+                if (pl.remove(id))
+                {
+                    btn_Clear_Click(sender, e);
+                    load();
+                }
             }
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            string id = txt_pid.Text;
-            string name = txt_pname.Text;
-            int price = Convert.ToInt32(txt_price.Text);
-            string brand = txt_pbrand.Text;
-            string? color = cbx_productColor.SelectedItem.ToString();
-            if (color == null)
+            if (txt_pname.Text == "" || txt_price.Text == "" || txt_pbrand.Text == "")
             {
-                MessageBox.Show("Vui lòng chọn màu sắc!");
+                MessageBox.Show("Hãy đảm bảo đầy đủ nội dung trước khi thực hiện!");
                 return;
             }
-            int size = Convert.ToInt32(nbr_productSize.Value);
-            int num = Convert.ToInt32(nbr_productNum.Value);
-            int importprice = Convert.ToInt32(txt_importprice.Text);
-            DateTime dt = dtm_productImportDate.Value;
-            if (pl.update(id, name, price, brand, color, size, num, importprice, dt, imageBytes))
+            else
             {
-                btn_Clear_Click(sender, e);
-                load();
+                string id = txt_pid.Text;
+                string name = txt_pname.Text;
+                int price = Convert.ToInt32(txt_price.Text);
+                string brand = txt_pbrand.Text;
+                string? color = cbx_productColor.SelectedItem.ToString();
+                if (color == null)
+                {
+                    MessageBox.Show("Vui lòng chọn màu sắc!");
+                    return;
+                }
+                if (imageBytes == null)
+                {
+                    MessageBox.Show("Vui lòng chọn hình ảnh!");
+                    return;
+                }
+                if (Convert.ToInt32(nbr_productSize.Value) <= 0)
+                {
+                    MessageBox.Show("Hãy chọn kích thước lớn hơn 0!");
+                    return;
+                }
+                if (Convert.ToInt32(nbr_productNum.Value) <= 0)
+                {
+                    MessageBox.Show("Hãy chọn số lượng lớn hơn 0!");
+                    return;
+                }
+                if (txt_importprice.Text == "")
+                {
+                    MessageBox.Show("Hãy nhập giá nhập hàng!");
+                    return;
+                }
+                int size = Convert.ToInt32(nbr_productSize.Value);
+                int num = Convert.ToInt32(nbr_productNum.Value);
+                int importprice = Convert.ToInt32(txt_importprice.Text);
+                DateTime dt = dtm_productImportDate.Value;
+                if (pl.add(id, name, price, brand, color, size, num, importprice, dt, imageBytes))
+                {
+                    btn_Clear_Click(sender, e);
+                    load();
+                }
             }
         }
 

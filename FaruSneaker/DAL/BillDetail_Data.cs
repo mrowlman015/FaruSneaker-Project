@@ -13,6 +13,22 @@ namespace DAL
     {
         Dataconnection data = new Dataconnection();
 
+        public bool checkInBillDetail(string id)
+        {
+            data.Connection();
+            string query = "select * from BillDetail where BillID = @id";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                data.Disconnection();
+                return true;
+            }
+            data.Disconnection();
+            return false;
+        }
+
         public DataTable load(string id)
         {
             string query = "select * from BillDetail where BillID = @id";
@@ -147,6 +163,21 @@ namespace DAL
         {
             data.Connection();
             string query = "delete from BillDetail where BillID = @id";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            int res = cmd.ExecuteNonQuery();
+            data.Disconnection();
+            if (res > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool removeService(string id)
+        {
+            data.Connection();
+            string query = "delete from BillDetailForService where BillID = @id";
             SqlCommand cmd = new SqlCommand(query, data.Conn);
             cmd.Parameters.AddWithValue("@id", id);
             int res = cmd.ExecuteNonQuery();

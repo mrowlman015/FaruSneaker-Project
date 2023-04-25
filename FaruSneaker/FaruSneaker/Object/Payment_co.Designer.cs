@@ -63,8 +63,8 @@
             label7 = new Label();
             label9 = new Label();
             panel8 = new Panel();
-            cButton7 = new CButton();
-            rjTextBox1 = new CustomControls.RJControls.RJTextBox();
+            btn_Search = new CButton();
+            rtx_Search = new CustomControls.RJControls.RJTextBox();
             pictureBox1 = new PictureBox();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Payment).BeginInit();
@@ -427,53 +427,53 @@
             // 
             // panel8
             // 
-            panel8.Controls.Add(cButton7);
-            panel8.Controls.Add(rjTextBox1);
+            panel8.Controls.Add(btn_Search);
+            panel8.Controls.Add(rtx_Search);
             panel8.Controls.Add(pictureBox1);
             panel8.Location = new Point(1, 0);
             panel8.Name = "panel8";
             panel8.Size = new Size(1175, 78);
             panel8.TabIndex = 89;
             // 
-            // cButton7
+            // btn_Search
             // 
-            cButton7.BackColor = Color.FromArgb(232, 232, 232);
-            cButton7.BackgroundColor = Color.FromArgb(232, 232, 232);
-            cButton7.BorderColor = Color.Transparent;
-            cButton7.BorderRadius = 1;
-            cButton7.BorderSize = 0;
-            cButton7.FlatAppearance.BorderSize = 0;
-            cButton7.FlatStyle = FlatStyle.Flat;
-            cButton7.ForeColor = Color.Transparent;
-            cButton7.Image = Properties.Resources.search;
-            cButton7.Location = new Point(567, 20);
-            cButton7.Name = "cButton7";
-            cButton7.Size = new Size(81, 39);
-            cButton7.TabIndex = 1;
-            cButton7.TextColor = Color.Transparent;
-            cButton7.UseVisualStyleBackColor = false;
-            cButton7.Click += cButton7_Click;
+            btn_Search.BackColor = Color.FromArgb(232, 232, 232);
+            btn_Search.BackgroundColor = Color.FromArgb(232, 232, 232);
+            btn_Search.BorderColor = Color.Transparent;
+            btn_Search.BorderRadius = 1;
+            btn_Search.BorderSize = 0;
+            btn_Search.FlatAppearance.BorderSize = 0;
+            btn_Search.FlatStyle = FlatStyle.Flat;
+            btn_Search.ForeColor = Color.Transparent;
+            btn_Search.Image = Properties.Resources.search;
+            btn_Search.Location = new Point(567, 20);
+            btn_Search.Name = "btn_Search";
+            btn_Search.Size = new Size(81, 39);
+            btn_Search.TabIndex = 1;
+            btn_Search.TextColor = Color.Transparent;
+            btn_Search.UseVisualStyleBackColor = false;
+            btn_Search.Click += cButton7_Click;
             // 
-            // rjTextBox1
+            // rtx_Search
             // 
-            rjTextBox1.BackColor = Color.FromArgb(232, 232, 232);
-            rjTextBox1.BackgroundImageLayout = ImageLayout.None;
-            rjTextBox1.BorderColor = Color.Transparent;
-            rjTextBox1.BorderFocusColor = Color.Transparent;
-            rjTextBox1.BorderSize = 1;
-            rjTextBox1.Cursor = Cursors.IBeam;
-            rjTextBox1.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rjTextBox1.ForeColor = Color.Black;
-            rjTextBox1.Location = new Point(21, 20);
-            rjTextBox1.Margin = new Padding(4);
-            rjTextBox1.Multiline = true;
-            rjTextBox1.Name = "rjTextBox1";
-            rjTextBox1.Padding = new Padding(7);
-            rjTextBox1.PasswordChar = false;
-            rjTextBox1.Size = new Size(627, 39);
-            rjTextBox1.TabIndex = 1;
-            rjTextBox1.Texts = "";
-            rjTextBox1.UnderlinedStyle = false;
+            rtx_Search.BackColor = Color.FromArgb(232, 232, 232);
+            rtx_Search.BackgroundImageLayout = ImageLayout.None;
+            rtx_Search.BorderColor = Color.Transparent;
+            rtx_Search.BorderFocusColor = Color.Transparent;
+            rtx_Search.BorderSize = 1;
+            rtx_Search.Cursor = Cursors.IBeam;
+            rtx_Search.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            rtx_Search.ForeColor = Color.Black;
+            rtx_Search.Location = new Point(21, 20);
+            rtx_Search.Margin = new Padding(4);
+            rtx_Search.Multiline = true;
+            rtx_Search.Name = "rtx_Search";
+            rtx_Search.Padding = new Padding(7);
+            rtx_Search.PasswordChar = false;
+            rtx_Search.Size = new Size(627, 39);
+            rtx_Search.TabIndex = 1;
+            rtx_Search.Texts = "";
+            rtx_Search.UnderlinedStyle = false;
             // 
             // pictureBox1
             // 
@@ -545,8 +545,8 @@
         private Label label7;
         private Label label9;
         private Panel panel8;
-        private CButton cButton7;
-        private CustomControls.RJControls.RJTextBox rjTextBox1;
+        private CButton btn_Search;
+        private CustomControls.RJControls.RJTextBox rtx_Search;
         private PictureBox pictureBox1;
         private Button btn_Service;
     }

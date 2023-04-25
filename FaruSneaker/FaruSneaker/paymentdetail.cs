@@ -68,7 +68,6 @@ namespace FaruSneaker
             }
             btn_Add.Enabled = enable;
             btn_Remove.Enabled = enable;
-            btn_Update.Enabled = enable;
         }
 
         private void dgv_product_CellClick(object sender, DataGridViewCellEventArgs e)

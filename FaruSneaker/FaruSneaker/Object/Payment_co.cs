@@ -167,12 +167,19 @@ namespace FaruSneaker.Object
 
 
             BillDetail_logic bi = new BillDetail_logic();
-            if (bi.remove(id))
+            if (bi.checkInBillDetail(id))
             {
-                if (bl.remove(id))
+                if (bi.remove(id))
                 {
-                    load(id);
-                    MessageBox.Show("Thành công!");
+                    if (bl.remove(id))
+                    {
+                        load(id);
+                        MessageBox.Show("Thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thất bại!");
+                    }
                 }
                 else
                 {
@@ -181,8 +188,24 @@ namespace FaruSneaker.Object
             }
             else
             {
-                MessageBox.Show("Thất bại!");
+                if (bi.removeService(id))
+                {
+                    if (bl.remove(id))
+                    {
+                        load(id);
+                        MessageBox.Show("Thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thất bại!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Thất bại!");
+                }
             }
+            
 
         }
 
@@ -236,7 +259,28 @@ namespace FaruSneaker.Object
 
         private void cButton7_Click(object sender, EventArgs e)
         {
-
+            DataTable dt = bl.searchById(rtx_Search.Texts);
+            DataRow row = dt.Rows[0];
+            rtx_BillID.Text = row[0].ToString();
+            cbx_CusID.Text = row[1].ToString();
+            cbx_CusID_SelectedIndexChanged(sender, e);
+            cbx_StaffID.Text = row[2].ToString();
+            cbx_StaffID_SelectedIndexChanged(sender, e);
+            BillDetail_logic bi = new BillDetail_logic();
+            string? id = row[0].ToString();
+            if (id != null)
+            {
+                if (bi.checkInBillDetail(id))
+                {
+                    rtx_TotalCash.Text = bi.getTotalCash(id).ToString();
+                    dgv_Payment.DataSource = bi.load(id);
+                }
+                else
+                {
+                    rtx_TotalCash.Text = bi.getTotalCashService(id).ToString();
+                    dgv_Payment.DataSource = bi.loadForService(id);
+                }
+            }
         }
     }
 }

@@ -106,7 +106,15 @@ create table BillDetail (
 	constraint billdetail_id_product foreign key(ProductID) references Product(ProductID)
 )
 
-
+create table BillDetailForService (
+	BillID varchar(10) not null,
+	ServiceID varchar(10) not null,
+	ServicePrice int, 
+	ServiceDes nvarchar(100),
+	primary key(BillID, ProductID),
+	constraint billdetailforservice_id_bill foreign key(BillID) references Bill(BillID),
+	constraint billdetailforservice_id_product foreign key(ServiceID) references Product(ProductID)
+)
 
 
 insert into dbo.UserRole 

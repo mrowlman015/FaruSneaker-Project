@@ -57,7 +57,7 @@ namespace FaruSneaker
                         catch (IOException ex)
                         {
                             fileError = true;
-                            MessageBox.Show("Thất bại!");
+                            MessageBox.Show("Thất bại!" + ex.Message);
                         }
                     }
                     if (!fileError)
@@ -101,7 +101,7 @@ namespace FaruSneaker
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Lỗi!");
+                            MessageBox.Show("Lỗi!" + ex.Message);
                         }
                     }
                 }

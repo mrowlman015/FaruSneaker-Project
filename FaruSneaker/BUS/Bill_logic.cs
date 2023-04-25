@@ -46,5 +46,10 @@ namespace BUS
         {
             return data.update(id, cusid, price, staffid) ;
         }
+
+        public DataTable searchById(string Id)
+        {
+            return data.searchById(Id);
+        }
     }
 }

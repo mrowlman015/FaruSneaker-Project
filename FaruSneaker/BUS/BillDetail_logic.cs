@@ -23,6 +23,11 @@ namespace BUS
             return data.loadForService(id);
         }
 
+        public bool checkInBillDetail(string id)
+        {
+            return data.checkInBillDetail(id);
+        }
+
         public double getTotalCash(string id)
         {
             return data.getTotalCash(id);
@@ -56,6 +61,11 @@ namespace BUS
         public bool remove(string id)
         {
             return data.remove(id);
+        }
+
+        public bool removeService(string id)
+        {
+            return data.removeService(id);
         }
 
         public bool removeProduct(string id, string pid)
