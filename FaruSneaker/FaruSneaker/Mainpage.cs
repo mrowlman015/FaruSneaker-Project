@@ -16,9 +16,11 @@ namespace FaruSneaker
         public Mainpage()
         {
             InitializeComponent();
+            revenue_co2.BringToFront();
+
         }
 
-        private void btn_employ_Click(object sender, EventArgs e)
+        /*private void btn_employ_Click(object sender, EventArgs e)
         {
 
             employee_co1.BringToFront();
@@ -42,7 +44,7 @@ namespace FaruSneaker
 
         private void btn_pay_Click(object sender, EventArgs e)
         {
-            /*payment_co1 = new Payment_co();*/
+            payment_co1 = new Payment_co();
             if (payment_co1 == null)
             {
                 payment_co1 = new Payment_co();
@@ -54,7 +56,7 @@ namespace FaruSneaker
 
         private void btn_home_Click(object sender, EventArgs e)
         {
-            /*revenue_co1.BringToFront();*/
+            revenue_co1.BringToFront();
             Revenue rv = new Revenue();
             rv.ShowDialog();
         }
@@ -67,12 +69,57 @@ namespace FaruSneaker
 
         private void payment_co1_Load(object sender, EventArgs e)
         {
-            /*payment_co1.BringToFront();*/
+            payment_co1.BringToFront();
         }
 
-        private void btn_account_Click(object sender, EventArgs e)
+        /*private void btn_account_Click(object sender, EventArgs e)
         {
             account_co1.BringToFront();
+        }*/
+
+        private void btn_home_Click_1(object sender, EventArgs e)
+        {
+            revenue_co2.BringToFront();
+        }
+
+        private void btn_account_Click_1(object sender, EventArgs e)
+        {
+            account_co1.BringToFront();
+        }
+
+        private void btn_employ_Click_1(object sender, EventArgs e)
+        {
+            employee_co1.BringToFront();
+
+        }
+
+        private void btn_customer_Click(object sender, EventArgs e)
+        {
+            customer_co1.BringToFront();
+
+        }
+
+        private void btn_product_Click(object sender, EventArgs e)
+        {
+            products_co1.BringToFront();
+
+        }
+
+        private void btn_ser_Click(object sender, EventArgs e)
+        {
+            service_co1.BringToFront();
+
+        }
+
+        private void btn_pay_Click(object sender, EventArgs e)
+        {
+            payment_co2 = new Payment_co();
+            if (payment_co2 == null)
+            {
+                payment_co2 = new Payment_co();
+            }
+            payment_co1.Load += (s, ev) => payment_co2.ReloadForm();
+            payment_co1.BringToFront();
         }
     }
 }

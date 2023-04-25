@@ -40,3 +40,9 @@ E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\DAL\obj\Deb
 E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.dll
 E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.pdb
+G:\FaruSneaker-Project\FaruSneaker\DAL\bin\Debug\DAL.dll
+G:\FaruSneaker-Project\FaruSneaker\DAL\bin\Debug\DAL.pdb
+G:\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+G:\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+G:\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.dll
+G:\FaruSneaker-Project\FaruSneaker\DAL\obj\Debug\DAL.pdb

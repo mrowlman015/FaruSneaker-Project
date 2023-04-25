@@ -553,23 +553,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
+    "C:\\Users\\congl\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\HOC TAP\\PROJECT\\GITPROJECT\\UPDATE\\FaruSneaker-Project\\FaruSneaker\\FaruSneaker\\FaruSneaker.csproj",
+      "projectUniqueName": "G:\\FaruSneaker-Project\\FaruSneaker\\FaruSneaker\\FaruSneaker.csproj",
       "projectName": "FaruSneaker",
-      "projectPath": "E:\\HOC TAP\\PROJECT\\GITPROJECT\\UPDATE\\FaruSneaker-Project\\FaruSneaker\\FaruSneaker\\FaruSneaker.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "E:\\HOC TAP\\PROJECT\\GITPROJECT\\UPDATE\\FaruSneaker-Project\\FaruSneaker\\FaruSneaker\\obj\\",
+      "projectPath": "G:\\FaruSneaker-Project\\FaruSneaker\\FaruSneaker\\FaruSneaker.csproj",
+      "packagesPath": "C:\\Users\\congl\\.nuget\\packages\\",
+      "outputPath": "G:\\FaruSneaker-Project\\FaruSneaker\\FaruSneaker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\congl\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -584,8 +584,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "E:\\HOC TAP\\PROJECT\\GITPROJECT\\UPDATE\\FaruSneaker-Project\\FaruSneaker\\BUS\\BUS.csproj": {
-              "projectPath": "E:\\HOC TAP\\PROJECT\\GITPROJECT\\UPDATE\\FaruSneaker-Project\\FaruSneaker\\BUS\\BUS.csproj"
+            "G:\\FaruSneaker-Project\\FaruSneaker\\BUS\\BUS.csproj": {
+              "projectPath": "G:\\FaruSneaker-Project\\FaruSneaker\\BUS\\BUS.csproj"
             }
           }
         }
@@ -628,7 +628,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },
