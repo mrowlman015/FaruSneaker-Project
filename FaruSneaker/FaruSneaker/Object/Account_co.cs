@@ -45,7 +45,7 @@ namespace FaruSneaker.Object
             {
                 string name = txt_accname.Text;
                 string pass = txt_accpass.Text;
-                int checkrole = 0
+                int checkrole = 0;
 
                 if (!int.TryParse(txt_accrole.Text, out checkrole))
                 {

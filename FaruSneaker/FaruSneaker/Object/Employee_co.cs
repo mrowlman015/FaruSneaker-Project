@@ -41,21 +41,21 @@ namespace FaruSneaker.Object
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int checkphone = 0;
-            int checkci = 0;
+            long checkphone = 0;
+            long checkci = 0;
             int checksalary = 0;
-            if (!int.TryParse(txt_ephone.Text, out checkphone))
+            if (!long.TryParse(txt_ephone.Text, out checkphone))
             {
                 MessageBox.Show("Số điện thoại không bao gồm kí tự chữ cái");
-                error.SetError(txt_salary, "Số điện thoại không bao gồm kí tự chữ cái");
+                error.SetError(txt_ephone, "Số điện thoại không bao gồm kí tự chữ cái");
                 return;
             }
             else
             {
-                if (!int.TryParse(txt_ci.Text, out checkci))
+                if (!long.TryParse(txt_ci.Text, out checkci))
                 {
                     MessageBox.Show("Căn cước công dân không bao gồm kí tự chữ cái");
-                    error.SetError(txt_salary, "Căn cước công dân không bao gồm kí tự chữ cái");
+                    error.SetError(txt_ci, "Căn cước công dân không bao gồm kí tự chữ cái");
                     return;
                 }
                 else
@@ -137,10 +137,10 @@ namespace FaruSneaker.Object
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            int checkphone = 0;
-            int checkci = 0;
+            long checkphone = 0;
+            long checkci = 0;
             int checksalary = 0;
-            if (!int.TryParse(txt_ephone.Text, out checkphone))
+            if (!long.TryParse(txt_ephone.Text, out checkphone))
             {
                 MessageBox.Show("Số điện thoại không bao gồm kí tự chữ cái");
                 error.SetError(txt_ephone, "Số điện thoại không bao gồm kí tự chữ cái");
@@ -148,7 +148,7 @@ namespace FaruSneaker.Object
             }
             else
             {
-                if (!int.TryParse(txt_ci.Text, out checkci))
+                if (!long.TryParse(txt_ci.Text, out checkci))
                 {
                     MessageBox.Show("Căn cước công dân không bao gồm kí tự chữ cái");
                     error.SetError(txt_ci, "Căn cước công dân không bao gồm kí tự chữ cái");
