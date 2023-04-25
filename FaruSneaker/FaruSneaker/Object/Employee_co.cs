@@ -42,11 +42,9 @@ namespace FaruSneaker.Object
         private void button1_Click(object sender, EventArgs e)
         {
             int checkphone = 0;
-
-            long checkphone = 0;
             long checkci = 0;
             int checksalary = 0;
-            if (!long.TryParse(txt_ephone.Text, out checkphone))
+            if (!int.TryParse(txt_ephone.Text, out checkphone))
             {
                 MessageBox.Show("Số điện thoại không bao gồm kí tự chữ cái");
                 error.SetError(txt_ephone, "Số điện thoại không bao gồm kí tự chữ cái");
@@ -56,13 +54,10 @@ namespace FaruSneaker.Object
             {
                 if (!long.TryParse(txt_ci.Text, out checkci))
                 {
-<<<<<<< HEAD
                     MessageBox.Show("Căn cước công dân không bao gồm kí tự chữ cái và gồm 12 số");
                     error.SetError(txt_salary, "Căn cước công dân không bao gồm kí tự chữ cái");
-=======
                     MessageBox.Show("Căn cước công dân không bao gồm kí tự chữ cái");
                     error.SetError(txt_ci, "Căn cước công dân không bao gồm kí tự chữ cái");
->>>>>>> bfa3a1afdf339598277377659eebc4c435004652
                     return;
                 }
                 else
@@ -144,14 +139,10 @@ namespace FaruSneaker.Object
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             int checkphone = 0;
-=======
-            long checkphone = 0;
->>>>>>> bfa3a1afdf339598277377659eebc4c435004652
             long checkci = 0;
             int checksalary = 0;
-            if (!long.TryParse(txt_ephone.Text, out checkphone))
+            if (!int.TryParse(txt_ephone.Text, out checkphone))
             {
                 MessageBox.Show("Số điện thoại không bao gồm kí tự chữ cái");
                 error.SetError(txt_ephone, "Số điện thoại không bao gồm kí tự chữ cái");
@@ -188,9 +179,7 @@ namespace FaruSneaker.Object
             }
             else
             {
-<<<<<<< HEAD
                 MessageBox.Show("Thêm nhân viên không thành công");
-=======
                 if (!long.TryParse(txt_ci.Text, out checkci))
                 {
                     MessageBox.Show("Căn cước công dân không bao gồm kí tự chữ cái");
@@ -208,13 +197,7 @@ namespace FaruSneaker.Object
                     else
                     {
                         error.Clear();
-                        string Id = txt_eid.Text;
-                        string name = txt_ename.Text;
-                        string phone = txt_ephone.Text;
-                        string ci = txt_ci.Text;
-                        DateTime DOB = dob.Value;
-                        string add = txt_add.Text;
-                        int salary = Int32.Parse(txt_salary.Text);
+             
                         if (data.add(Id, name, phone, ci, DOB, add, salary))
                         {
                             setEditingMode(false);
@@ -231,7 +214,6 @@ namespace FaruSneaker.Object
                         }
                     }
                 }
->>>>>>> bfa3a1afdf339598277377659eebc4c435004652
             }
         }
         private void table_E_CellClick(object sender, DataGridViewCellEventArgs e)
