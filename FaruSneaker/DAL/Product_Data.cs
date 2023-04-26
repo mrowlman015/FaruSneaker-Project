@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing;
 
 namespace DAL
 {
@@ -246,6 +248,29 @@ namespace DAL
             byte[] res = (byte[])cmd.ExecuteScalar();
             data.Disconnection();
             return res;
+        }
+
+        public PictureBox loadImage(string id)
+        {
+            data.Connection();
+            string query = "select ImageProduct from Item where ItemID = @id";
+            SqlCommand cmd = new SqlCommand(query, data.Conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader reader = cmd.ExecuteReader();
+            PictureBox picture = new PictureBox();
+            if (reader.Read())
+            {
+                byte[] imageData = (byte[])reader[0];
+
+                // Load the image data into a MemoryStream object
+                MemoryStream memoryStream = new MemoryStream(imageData);
+
+                // Load the image from the MemoryStream object into the PictureBox
+                picture.Image = Image.FromStream(memoryStream);
+                picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            data.Disconnection();
+            return picture;
         }
     }
 }

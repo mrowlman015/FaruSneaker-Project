@@ -53,5 +53,10 @@ namespace BUS
         {
             return data.getImage(id);
         }
+
+        public PictureBox loadImage(string id)
+        {
+            return data.loadImage(id);
+        }
     }
 }
