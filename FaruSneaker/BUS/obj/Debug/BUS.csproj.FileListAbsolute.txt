@@ -70,3 +70,4 @@ G:\FaruSneaker-Project\FaruSneaker\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.ca
 G:\FaruSneaker-Project\FaruSneaker\BUS\obj\Debug\BUS.csproj.CopyComplete
 G:\FaruSneaker-Project\FaruSneaker\BUS\obj\Debug\BUS.dll
 G:\FaruSneaker-Project\FaruSneaker\BUS\obj\Debug\BUS.pdb
+E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\BUS\bin\Debug\DAL.dll.config

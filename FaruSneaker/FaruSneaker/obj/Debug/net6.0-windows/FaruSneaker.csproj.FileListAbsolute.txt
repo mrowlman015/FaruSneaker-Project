@@ -465,3 +465,4 @@ G:\FaruSneaker-Project\FaruSneaker\FaruSneaker\obj\Debug\net6.0-windows\FaruSnea
 G:\FaruSneaker-Project\FaruSneaker\FaruSneaker\obj\Debug\net6.0-windows\FaruSneaker.genruntimeconfig.cache
 G:\FaruSneaker-Project\FaruSneaker\FaruSneaker\obj\Debug\net6.0-windows\ref\FaruSneaker.dll
 E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\FaruSneaker\obj\Debug\net6.0-windows\FaruSneaker.Mainpage_staff.resources
+E:\HOC TAP\PROJECT\GITPROJECT\UPDATE\FaruSneaker-Project\FaruSneaker\FaruSneaker\bin\Debug\net6.0-windows\DAL.dll.config

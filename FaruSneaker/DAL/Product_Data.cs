@@ -6,8 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Drawing;
 
 namespace DAL
 {
@@ -22,7 +20,7 @@ namespace DAL
             return table;
         }
 
-        public bool add(string id, string name, int price, string brand, string color, int size, int num, int importprice, DateTime importdate, byte[] image)
+        public bool add(string id, string name, int price, string brand, string color, int size, int num, int importprice, DateTime importdate)
         {
             data.Connection();
             string query1 = "insert into Product values (dbo.auto_ItemID(), @ProductName, @ProductPrice)";
@@ -32,7 +30,7 @@ namespace DAL
             int res1 = cmd1.ExecuteNonQuery();
             if (res1 > 0)
             {
-                string query2 = "insert into Item values (dbo.auto_ItemID(), @ProductName, @ProductPrice, @Itembrand, @ItemColor, @ItemSize, @ItemNum, @ItemImportPrice, @ItemImportDate, @image)";
+                string query2 = "insert into Item values (dbo.auto_ItemID(), @ProductName, @ProductPrice, @Itembrand, @ItemColor, @ItemSize, @ItemNum, @ItemImportPrice, @ItemImportDate, null)";
                 SqlCommand cmd2 = new SqlCommand(query2, data.Conn);
                 cmd2.Parameters.AddWithValue("@ProductName", name);
                 cmd2.Parameters.AddWithValue("@ProductPrice", price);
@@ -42,7 +40,6 @@ namespace DAL
                 cmd2.Parameters.AddWithValue("@ItemNum", num);
                 cmd2.Parameters.AddWithValue("@ItemImportPrice", importprice);
                 cmd2.Parameters.AddWithValue("@ItemImportDate", importdate);
-                cmd2.Parameters.AddWithValue("@image", image);
                 int res2 = cmd2.ExecuteNonQuery();
                 data.Disconnection();
                 if (res2 > 0)
@@ -158,7 +155,7 @@ namespace DAL
             data.Disconnection();
         }*/
 
-        public bool update(string id, string name, int price, string brand, string color, int size, int num, int importprice, DateTime importdate, byte[] image)
+        public bool update(string id, string name, int price, string brand, string color, int size, int num, int importprice, DateTime importdate)
         {
             data.Connection();
             string query1 = "update Product set ProductName = @ProductName, ProductPrice = @ProductPrice where ProductID = @ProductID";
@@ -169,7 +166,7 @@ namespace DAL
             int res1 = cmd1.ExecuteNonQuery();
             if (res1 > 0)
             {
-                string query2 = "update Item set ItemName = @ProductName, ItemPrice = @ProductPrice, ItemBrand = @Itembrand, ItemColor = @ItemColor, ItemSize = @ItemSize, ItemNum = @ItemNum, ItemImportPrice = @ItemImportPrice, ItemImportDate = @ItemImportDate, ImageProduct = @image where ItemID = @ProductID";
+                string query2 = "update Item set ItemName = @ProductName, ItemPrice = @ProductPrice, ItemBrand = @Itembrand, ItemColor = @ItemColor, ItemSize = @ItemSize, ItemNum = @ItemNum, ItemImportPrice = @ItemImportPrice, ItemImportDate = @ItemImportDate where ItemID = @ProductID";
                 SqlCommand cmd2 = new SqlCommand(query2, data.Conn);
                 cmd2.Parameters.AddWithValue("@ProductName", name);
                 cmd2.Parameters.AddWithValue("@ProductPrice", price);
@@ -179,7 +176,6 @@ namespace DAL
                 cmd2.Parameters.AddWithValue("@ItemNum", num);
                 cmd2.Parameters.AddWithValue("@ItemImportPrice", importprice);
                 cmd2.Parameters.AddWithValue("@ItemImportDate", importdate);
-                cmd2.Parameters.AddWithValue("@image", image);
                 cmd2.Parameters.AddWithValue("@ProductID", id);
                 int res2 = cmd2.ExecuteNonQuery();
                 data.Disconnection();
@@ -248,29 +244,6 @@ namespace DAL
             byte[] res = (byte[])cmd.ExecuteScalar();
             data.Disconnection();
             return res;
-        }
-
-        public PictureBox loadImage(string id)
-        {
-            data.Connection();
-            string query = "select ImageProduct from Item where ItemID = @id";
-            SqlCommand cmd = new SqlCommand(query, data.Conn);
-            cmd.Parameters.AddWithValue("@id", id);
-            SqlDataReader reader = cmd.ExecuteReader();
-            PictureBox picture = new PictureBox();
-            if (reader.Read())
-            {
-                byte[] imageData = (byte[])reader[0];
-
-                // Load the image data into a MemoryStream object
-                MemoryStream memoryStream = new MemoryStream(imageData);
-
-                // Load the image from the MemoryStream object into the PictureBox
-                picture.Image = Image.FromStream(memoryStream);
-                picture.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            data.Disconnection();
-            return picture;
         }
     }
 }

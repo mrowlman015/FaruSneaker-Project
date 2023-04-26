@@ -19,9 +19,9 @@ namespace BUS
             return data.load();
         }
 
-        public bool add(string id, string name, int price, string brand, string color, int size, int num, int importprice, DateTime importdate, byte[] image)
+        public bool add(string id, string name, int price, string brand, string color, int size, int num, int importprice, DateTime importdate)
         {
-            return data.add(id, name, price, brand, color, size, num, importprice, importdate, image);
+            return data.add(id, name, price, brand, color, size, num, importprice, importdate);
         }
 
         public bool afterCancel(string id, int numAdd)
@@ -39,9 +39,9 @@ namespace BUS
             return data.remove(id);
         }
 
-        public bool update(string id, string name, int price, string brand, string color, int size, int num, int importprice, DateTime importdate, byte[] image)
+        public bool update(string id, string name, int price, string brand, string color, int size, int num, int importprice, DateTime importdate)
         {
-            return data.update(id, name, price, brand, color, size, num, importprice, importdate, image);
+            return data.update(id, name, price, brand, color, size, num, importprice, importdate);
         }
 
         public DataTable searchByName(string name)
@@ -52,11 +52,6 @@ namespace BUS
         public byte[] getImage(string id)
         {
             return data.getImage(id);
-        }
-
-        public PictureBox loadImage(string id)
-        {
-            return data.loadImage(id);
         }
     }
 }

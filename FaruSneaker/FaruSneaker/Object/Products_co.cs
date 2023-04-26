@@ -14,7 +14,6 @@ namespace FaruSneaker.Object
     public partial class Products_co : UserControl
     {
         Product_logic pl = new Product_logic();
-        byte[]? imageBytes = null;
         string id = "";
         public Products_co()
         {
@@ -31,7 +30,6 @@ namespace FaruSneaker.Object
             btn_delete.Enabled = enable;
             btn_update.Enabled = enable;
             btn_Clear.Enabled = enable;
-            btn_Image.Enabled = !enable;
         }
 
         private void load()
@@ -267,11 +265,6 @@ namespace FaruSneaker.Object
                     MessageBox.Show("Vui lòng chọn màu sắc!");
                     return;
                 }
-                if (imageBytes == null)
-                {
-                    MessageBox.Show("Vui lòng chọn hình ảnh!");
-                    return;
-                }
                 if (Convert.ToInt32(nbr_productSize.Value) <= 0)
                 {
                     MessageBox.Show("Hãy chọn kích thước lớn hơn 0!");
@@ -291,7 +284,7 @@ namespace FaruSneaker.Object
                 int num = Convert.ToInt32(nbr_productNum.Value);
                 int importprice = Convert.ToInt32(txt_importprice.Text);
                 DateTime dt = dtm_productImportDate.Value;
-                if (pl.add(id, name, price, brand, color, size, num, importprice, dt, imageBytes))
+                if (pl.add(id, name, price, brand, color, size, num, importprice, dt))
                 {
                     MessageBox.Show("Thành công!");
                     btn_Clear_Click(sender, e);
@@ -301,19 +294,7 @@ namespace FaruSneaker.Object
 
         }
 
-        private void btn_Image_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.bmp)|*.jpg;*.jpeg;*.png;*.bmp";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string imagePath = openFileDialog1.FileName; // Lấy đường dẫn đầy đủ của file hình ảnh
-
-                // Đọc dữ liệu của file hình ảnh vào một mảng byte
-                imageBytes = File.ReadAllBytes(imagePath);
-
-            }
-        }
+        
 
         private void btn_delete_Click_1(object sender, EventArgs e)
         {
@@ -353,11 +334,6 @@ namespace FaruSneaker.Object
                     MessageBox.Show("Vui lòng chọn màu sắc!");
                     return;
                 }
-                if (imageBytes == null)
-                {
-                    MessageBox.Show("Vui lòng chọn hình ảnh!");
-                    return;
-                }
                 if (Convert.ToInt32(nbr_productSize.Value) <= 0)
                 {
                     MessageBox.Show("Hãy chọn kích thước lớn hơn 0!");
@@ -377,7 +353,7 @@ namespace FaruSneaker.Object
                 int num = Convert.ToInt32(nbr_productNum.Value);
                 int importprice = Convert.ToInt32(txt_importprice.Text);
                 DateTime dt = dtm_productImportDate.Value;
-                if (pl.update(id, name, price, brand, color, size, num, importprice, dt, imageBytes))
+                if (pl.update(id, name, price, brand, color, size, num, importprice, dt))
                 {
                     MessageBox.Show("Thành công!");
                     btn_Clear_Click(sender, e);
@@ -388,10 +364,6 @@ namespace FaruSneaker.Object
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            if (txt_search.Text == "")
-            {
-                load();
-            }
             string searchname = txt_search.Text;
             DataTable res = pl.searchByName(searchname);
             if (res.Rows.Count == 0)
@@ -402,6 +374,10 @@ namespace FaruSneaker.Object
             else
             {
                 dgv_product.DataSource = res;
+            }
+            if (searchname == "")
+            {
+                load();
             }
         }
 
@@ -425,7 +401,7 @@ namespace FaruSneaker.Object
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && !isRowNullOrEmpty(dgv_product.Rows[e.RowIndex]))
             {
                 DataGridViewRow row = dgv_product.Rows[e.RowIndex];
-                this.id = row.Cells[0].Value.ToString();
+                this.id = row.Cells[0].ToString();
                 txt_pid.Text = row.Cells[0].Value.ToString();
                 txt_pname.Text = row.Cells[1].Value.ToString();
                 txt_price.Text = row.Cells[2].Value.ToString();
@@ -435,18 +411,13 @@ namespace FaruSneaker.Object
                 nbr_productNum.Value = Convert.ToDecimal(row.Cells[6].Value);
                 txt_importprice.Text = Convert.ToString(row.Cells[7].Value);
                 dtm_productImportDate.Value = Convert.ToDateTime(row.Cells[8].Value);
-                if (this.id != "")
+                /*if (this.id != "")
                 {
-                    /*byte[] imageData = pl.getImage(this.id);
-                    if (imageData != null)
-                    {
-                        MemoryStream ms = new MemoryStream(imageData);
-                        Image img = Image.FromStream(ms);
-                        ptb_Image.Image = img;
-                    }*/
-                    /*MessageBox.Show(this.id);*/
-                    ptb_Image.Image = pl.loadImage(this.id).Image;
-                }
+                    byte[] imageData = pl.getImage(this.id);
+                    MemoryStream ms = new MemoryStream(imageData);
+                    Image img = Image.FromStream(ms);
+                    pictureBox1.Image = img;
+                }*/
             }
         }
 

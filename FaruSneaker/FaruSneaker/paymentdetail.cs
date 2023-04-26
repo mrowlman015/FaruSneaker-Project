@@ -46,10 +46,10 @@ namespace FaruSneaker
         {
             foreach (DataGridViewCell cell in row.Cells)
             {
-                if (cell.Value == null || cell.Value == DBNull.Value)
+                /*if (cell.Value == DBNull.Value)
                 {
                     return true;
-                }
+                }*/
 
                 if (cell.Value is string str && string.IsNullOrEmpty(str))
                 {
@@ -80,7 +80,7 @@ namespace FaruSneaker
                 rtx_PID.Text = row.Cells[0].Value.ToString();
                 rtx_PName.Text = row.Cells[1].Value.ToString();
                 rtx_Price.Text = row.Cells[2].Value.ToString();
-                this.numOfProduct = Convert.ToInt32(row.Cells[6].Value);
+                this.numOfProduct = Convert.ToInt32(row.Cells[6].Value.ToString());
             }
         }
 

@@ -41,7 +41,6 @@
             btn_update = new Button();
             btn_delete = new Button();
             btn_add = new Button();
-            btn_Image = new Button();
             label10 = new Label();
             dtm_productImportDate = new DateTimePicker();
             label9 = new Label();
@@ -56,13 +55,11 @@
             label4 = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
-            ptb_Image = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_product).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nbr_productNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nbr_productSize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ptb_Image).BeginInit();
             SuspendLayout();
             // 
             // btn_search
@@ -96,7 +93,6 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.White;
-            groupBox1.Controls.Add(ptb_Image);
             groupBox1.Controls.Add(btn_Clear);
             groupBox1.Controls.Add(txt_importprice);
             groupBox1.Controls.Add(txt_price);
@@ -107,7 +103,6 @@
             groupBox1.Controls.Add(btn_update);
             groupBox1.Controls.Add(btn_delete);
             groupBox1.Controls.Add(btn_add);
-            groupBox1.Controls.Add(btn_Image);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(dtm_productImportDate);
             groupBox1.Controls.Add(label9);
@@ -152,7 +147,7 @@
             // 
             txt_price.Location = new Point(835, 65);
             txt_price.Name = "txt_price";
-            txt_price.Size = new Size(126, 32);
+            txt_price.Size = new Size(234, 32);
             txt_price.TabIndex = 37;
             // 
             // txt_pbrand
@@ -223,18 +218,6 @@
             btn_add.Text = "Thêm";
             btn_add.UseVisualStyleBackColor = false;
             btn_add.Click += btn_add_Click;
-            // 
-            // btn_Image
-            // 
-            btn_Image.BackColor = Color.FromArgb(224, 224, 224);
-            btn_Image.ForeColor = Color.Black;
-            btn_Image.Location = new Point(927, 139);
-            btn_Image.Name = "btn_Image";
-            btn_Image.Size = new Size(133, 32);
-            btn_Image.TabIndex = 27;
-            btn_Image.Text = "Thêm hình ảnh";
-            btn_Image.UseVisualStyleBackColor = false;
-            btn_Image.Click += btn_Image_Click;
             // 
             // label10
             // 
@@ -369,18 +352,6 @@
             pictureBox1.TabIndex = 56;
             pictureBox1.TabStop = false;
             // 
-            // ptb_Image
-            // 
-            ptb_Image.BackColor = Color.Transparent;
-            ptb_Image.BorderStyle = BorderStyle.Fixed3D;
-            ptb_Image.Image = Properties.Resources.logo1;
-            ptb_Image.Location = new Point(967, 14);
-            ptb_Image.Name = "ptb_Image";
-            ptb_Image.Size = new Size(160, 119);
-            ptb_Image.SizeMode = PictureBoxSizeMode.StretchImage;
-            ptb_Image.TabIndex = 41;
-            ptb_Image.TabStop = false;
-            // 
             // Products_co
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -398,7 +369,6 @@
             ((System.ComponentModel.ISupportInitialize)nbr_productNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)nbr_productSize).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ptb_Image).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -417,7 +387,6 @@
         private Button btn_update;
         private Button btn_delete;
         private Button btn_add;
-        private Button btn_Image;
         private Label label10;
         private DateTimePicker dtm_productImportDate;
         private Label label9;
@@ -433,6 +402,5 @@
         private Label label3;
         private Button btn_Clear;
         private PictureBox pictureBox1;
-        private PictureBox ptb_Image;
     }
 }
