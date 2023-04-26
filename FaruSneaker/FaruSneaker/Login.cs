@@ -16,7 +16,7 @@ namespace FaruSneaker
 
         bool check(string username, string password, int roleuser)
         {
-            return data.check(username, password, 0);
+            return data.check(username, password, roleuser);
         }
 
         /*private void btn_SignIn_Click(object sender, EventArgs e)
@@ -83,7 +83,19 @@ namespace FaruSneaker
                     }
                     else
                     {
-                        MessageBox.Show("Tài khoản không chính xác!");
+                        if (check(user_name, password, 1))
+                        {
+                            Mainpage_staff mp = new Mainpage_staff();
+                            this.Hide();
+                            mp.ShowDialog();
+                            txt_username.Text = "";
+                            txt_pass.Text = "";
+                            this.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Tài khoản không chính xác!");
+                        }
                     }
                 }
             }

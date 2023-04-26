@@ -58,7 +58,7 @@
             btn_Print.Name = "btn_Print";
             btn_Print.Size = new Size(133, 37);
             btn_Print.TabIndex = 64;
-            btn_Print.Text = "In";
+            btn_Print.Text = "Lưu";
             btn_Print.UseVisualStyleBackColor = false;
             btn_Print.Click += btn_Print_Click;
             // 
@@ -76,6 +76,7 @@
             // 
             // dgv_Bill
             // 
+            dgv_Bill.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Bill.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Bill.Location = new Point(25, 238);
             dgv_Bill.Name = "dgv_Bill";

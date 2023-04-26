@@ -1,9 +1,12 @@
 ﻿using BUS;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -208,17 +211,91 @@ namespace FaruSneaker.Object
 
         private void btn_PayBill_Click(object sender, EventArgs e)
         {
-            string? cusid = cbx_CusID.SelectedItem.ToString();
-            if (bl.update(bl.getCurrentID(), cusid, Convert.ToInt32(rtx_TotalCash.Text), cbx_StaffID.SelectedItem.ToString()))
+            if (cbx_CusID.Text == "" || cbx_StaffID.Text == "")
             {
-                reset();
-                MessageBox.Show("Thành công!");
+                MessageBox.Show("Hãy đảm bảo đầy đủ nội dung!");
             }
             else
             {
-                reset();
-                MessageBox.Show("Thất bại!");
+                string? cusid = cbx_CusID.SelectedItem.ToString();
+                if (bl.update(bl.getCurrentID(), cusid, Convert.ToInt32(rtx_TotalCash.Text), cbx_StaffID.SelectedItem.ToString()))
+                {
+                    reset();
+                    if (dgv_Payment.Rows.Count > 0)
+                    {
+                        SaveFileDialog sfd = new SaveFileDialog();
+                        sfd.Filter = "PDF (*.pdf)|*.pdf";
+                        sfd.FileName = "Output.pdf";
+                        bool fileError = false;
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            if (File.Exists(sfd.FileName))
+                            {
+                                try
+                                {
+                                    File.Delete(sfd.FileName);
+                                }
+                                catch (IOException ex)
+                                {
+                                    fileError = true;
+                                    MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                                }
+                            }
+                            if (!fileError)
+                            {
+
+                                PdfPTable pdfTable = new PdfPTable(dgv_Payment.Columns.Count);
+                                pdfTable.DefaultCell.Padding = 3;
+                                pdfTable.WidthPercentage = 100;
+                                pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                                foreach (DataGridViewColumn column in dgv_Payment.Columns)
+                                {
+                                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                    pdfTable.AddCell(cell);
+                                }
+
+                                foreach (DataGridViewRow row in dgv_Payment.Rows)
+                                {
+                                    foreach (DataGridViewCell cell in row.Cells)
+                                    {
+                                        if (cell.Value != null)
+                                        {
+                                            pdfTable.AddCell(cell.Value.ToString());
+
+                                        }
+                                    }
+                                }
+
+                                using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                                {
+                                    Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                    PdfWriter.GetInstance(pdfDoc, stream);
+                                    pdfDoc.Open();
+                                    pdfDoc.Add(pdfTable);
+                                    pdfDoc.Close();
+                                    stream.Close();
+                                }
+
+                                MessageBox.Show("Data Exported Successfully !!!", "Info");
+
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Record To Export !!!", "Info");
+                    }
+                    MessageBox.Show("Thành công!");
+                }
+                else
+                {
+                    reset();
+                    MessageBox.Show("Thất bại!");
+                }
             }
+            
         }
 
         private void Payment_co_Load(object sender, EventArgs e)

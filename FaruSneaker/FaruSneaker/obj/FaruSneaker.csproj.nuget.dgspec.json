@@ -29,13 +29,13 @@
         "projectName": "DAL",
         "projectPath": "E:\\HOC TAP\\PROJECT\\GITPROJECT\\UPDATE\\FaruSneaker-Project\\FaruSneaker\\DAL\\DAL.csproj",
         "frameworks": {
-          "net48": {
+          "net472": {
             "projectReferences": {}
           }
         }
       },
       "frameworks": {
-        "net48": {}
+        "net472": {}
       }
     },
     "E:\\HOC TAP\\PROJECT\\GITPROJECT\\UPDATE\\FaruSneaker-Project\\FaruSneaker\\FaruSneaker\\FaruSneaker.csproj": {
